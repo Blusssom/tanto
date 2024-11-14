@@ -89,10 +89,10 @@
         </div>
     </div>
 
-    <div class="dish-review d-flex align-center flex-column" id="dish-review">
-        <div class="dish-review-close-btn" id="close-dish-review"></div>
+    <div class="dish-review popup d-flex align-center flex-column" id="dish-review">
+        <div class="dish-review-close-btn popup-close-button" id="close-dish-review"></div>
         <div class="dish-review-image">
-            <img src="./images/categories/image1.png" alt="">
+            <img src="" alt="">
         </div>
         <div class="container dish-review-content d-flex flex-column justify-space-between">
             <div>
@@ -125,6 +125,132 @@
         </div>
     </div>
 
+    <div class="cart-screen popup" id="cartScreen">
+        <div class="cart-close-btn popup-close-button title d-flex align-center">
+            <span>+</span>
+        </div>
+        <div class="title cart-title">Корзина</div>
+        <div class="cart-screen-content">
+            <div class="container">
+                <div class="cart-text">2 товара на сумму 9 999 ₽</div>
+                <div class="cart-products d-flex flex-column">
+                    <div class="cart-product">
+                        <div class="cart-product-image">
+                            <img src="./images/categories/pizza/1.png" alt="">
+                        </div>
+                        <div class="cart-product-text-wrapper">
+                            <div>
+                                <div class="cart-product-title">Название блюда</div>
+                                <div class="cart-product-description">Характеристики характеристики</div>
+                            </div>
+                            <div class="cart-product-price">9 999 ₽</div>
+                        </div>
+                        <div class="cart-product-modify-btn">Изменить</div>
+                        <div class="cart-product-count">
+                            <button type="button">-</button>
+                            <div class="cart-product-count-number">1</div>
+                            <button type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="cart-product">
+                        <div class="cart-product-image">
+                            <img src="./images/categories/pizza/1.png" alt="">
+                        </div>
+                        <div class="cart-product-text-wrapper">
+                            <div>
+                                <div class="cart-product-title">Название блюда</div>
+                                <div class="cart-product-description">Характеристики характеристики</div>
+                            </div>
+                            <div class="cart-product-price">9 999 ₽</div>
+                        </div>
+                        <div class="cart-product-modify-btn">Изменить</div>
+                        <div class="cart-product-count">
+                            <button type="button">-</button>
+                            <div class="cart-product-count-number">1</div>
+                            <button type="button">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-addition-wrapper">
+                <div class="container">
+                    <div class="cart-addition-title">Добавить к заказу?</div>
+                </div>
+                <div class="swiper cart-addition-items">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide cart-addition-item">
+                            <div class="cart-addition-item-image">
+                                <img src="./images/categories/dishes/1.png" alt="">
+                            </div>
+                            <div class="cart-addition-item-text">
+                                <div>Название блюда</div>
+                                <div class="cart-addition-item-price">9 999 ₽</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide cart-addition-item">
+                            <div class="cart-addition-item-image">
+                                <img src="./images/categories/dishes/1.png" alt="">
+                            </div>
+                            <div class="cart-addition-item-text">
+                                <div>Название блюда</div>
+                                <div class="cart-addition-item-price">9 999 ₽</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide cart-addition-item">
+                            <div class="cart-addition-item-image">
+                                <img src="./images/categories/dishes/1.png" alt="">
+                            </div>
+                            <div class="cart-addition-item-text">
+                                <div>Название блюда</div>
+                                <div class="cart-addition-item-price">9 999 ₽</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide cart-addition-item">
+                            <div class="cart-addition-item-image">
+                                <img src="./images/categories/dishes/1.png" alt="">
+                            </div>
+                            <div class="cart-addition-item-text">
+                                <div>Название блюда</div>
+                                <div class="cart-addition-item-price">9 999 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <input class="cart-promocode" type="text" placeholder="Промокод" maxlength="20">
+                <div class="cart-total-wrapper d-flex flex-column">
+                    <div class="cart-total-line cart-total-value">
+                        <span>Итого</span>
+                        <span>9 999 ₽ </span>
+                    </div>
+                    <div class="cart-total-line">
+                        <span>Товары в заказе </span>
+                        <span>9 999 ₽</span>
+                    </div>
+                    <div class="cart-total-line">
+                        <span>Скидки по акциям</span>
+                        <span>9 999 ₽</span>
+                    </div>
+                    <div class="cart-total-line">
+                        <span>Доставка</span>
+                        <span>9 999 ₽</span>
+                    </div>
+                    <div class="cart-total-line">
+                        <span>Баллы лояльности</span>
+                        <span>9 999 *</span>
+                    </div>
+                </div>
+                <div class="cart-main-button title">ОФОРМИТЬ</div>
+            </div>
+        </div>
+        <div class="cart-screen-empty">Корзина пуста.</div>
+    </div>
+
+    <div class="cart-button" id="cartButton">0</div>
+
     <div id="navigation" class="navigation d-flex align-center justify-space-between">
         <button type="button" class="navigation-item active" data-screen="main">
             <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,19 +282,19 @@
     }, 2000)
     setTimeout(() => { initialScreen.style.display = 'none' }, 3000)
 
+    const createFreeModeSwiper = (selector, space) => {
+        new Swiper(selector, {
+            spaceBetween: space,
+            slidesPerView: 'auto',
+            freeMode: true,
+        });
+    }
+
     // Свайпер сторис
-    new Swiper('.main-screen-stories', {
-        spaceBetween: 10,
-        slidesPerView: 'auto',
-        freeMode: true,
-    });
+    createFreeModeSwiper('.main-screen-stories', 10)
 
     // Свайпер навигации категорий
-    new Swiper('.categories-nav', {
-        spaceBetween: 13,
-        slidesPerView: 'auto',
-        freeMode: true,
-    });
+    createFreeModeSwiper('.categories-nav', 13)
 
     // Переключение вкладок
     const navigation = document.getElementById('navigation')
@@ -306,11 +432,25 @@
         dishReviewAddButton.innerHTML = `+ ${dishObj.price} ₽`
     }
 
-    // Закрытие блюда
-    document.getElementById('close-dish-review').addEventListener('click', () => {
-        dishReviewHTML.classList.remove('active')
-        document.body.classList.remove('no-scroll')
+    // Закрытие попапов
+    document.querySelectorAll('.popup-close-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const popup = button.closest('.popup')
+            popup.classList.remove('active')
+            document.body.classList.remove('no-scroll')
+        })
     })
+
+    // Открытие корзины
+    const cartButton = document.getElementById('cartButton')
+    const cartScreen = document.getElementById('cartScreen')
+    cartButton.addEventListener('click', () => {
+        cartScreen.classList.add('active')
+        document.body.classList.add('no-scroll')
+    })
+
+    // Свайпер дополнений к заказу
+    createFreeModeSwiper('.cart-addition-items', 10)
 </script>
 </body>
 </html>
