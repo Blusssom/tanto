@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TANTO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="no-scroll" data-screen="main">
+    <div class="initial-screen">
+        <img class="initial-screen-decoration-top" src="./images/decorations/initial-top.svg" alt="">
+        <img class="big-logo" src="./images/logo.png" alt="TANTO">
+        <img class="initial-screen-decoration-bottom" src="./images/decorations/initial-bottom.svg" alt="">
+    </div>
+
+    <div class="main-screen pt-10 content">
+        <div class="main-screen-content">
+            <div class="container">
+                <div class="main-screen-top d-flex align-center">
+                    <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.54922 21.5057C11.8203 18.7399 17 12.0366 17 8.27141C17 3.7049 13.1927 0 8.5 0C3.80729 0 0 3.7049 0 8.27141C0 12.0366 5.17969 18.7399 7.45078 21.5057C7.99531 22.1648 9.00469 22.1648 9.54922 21.5057ZM8.5 5.51427C9.25145 5.51427 9.97212 5.80475 10.5035 6.32182C11.0348 6.83888 11.3333 7.54017 11.3333 8.27141C11.3333 9.00264 11.0348 9.70393 10.5035 10.221C9.97212 10.7381 9.25145 11.0285 8.5 11.0285C7.74855 11.0285 7.02788 10.7381 6.49653 10.221C5.96518 9.70393 5.66667 9.00264 5.66667 8.27141C5.66667 7.54017 5.96518 6.83888 6.49653 6.32182C7.02788 5.80475 7.74855 5.51427 8.5 5.51427Z" fill="#859155" />
+                    </svg>
+                    <div class="main-screen-top-address-field">г. Москва, ул. Пушкина 13, кв Колотушкина</div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 19V20H3V19L5 17V11C5 7.9 7.03 5.17 10 4.29V4C10 3.46957 10.2107 2.96086 10.5858 2.58579C10.9609 2.21071 11.4696 2 12 2C12.5304 2 13.0391 2.21071 13.4142 2.58579C13.7893 2.96086 14 3.46957 14 4V4.29C16.97 5.17 19 7.9 19 11V17L21 19ZM14 21C14 21.5304 13.7893 22.0391 13.4142 22.4142C13.0391 22.7893 12.5304 23 12 23C11.4696 23 10.9609 22.7893 10.5858 22.4142C10.2107 22.0391 10 21.5304 10 21" fill="#D62331" fill-opacity="0.85" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="swiper main-screen-stories container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide main-screen-stories-item">
+                        <img src="./images/stories/image.png" alt="">
+                    </div>
+                    <div class="swiper-slide main-screen-stories-item">
+                        <img src="./images/stories/image.png" alt="">
+                    </div>
+                    <div class="swiper-slide main-screen-stories-item">
+                        <img src="./images/stories/image.png" alt="">
+                    </div>
+                    <div class="swiper-slide main-screen-stories-item">
+                        <img src="./images/stories/image.png" alt="">
+                    </div>
+                    <div class="swiper-slide main-screen-stories-item">
+                        <img src="./images/stories/image.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="title fz-16">Новинки/акции</div>
+                <div class="news-banner">
+                    <img src="./images/news/banner.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="categories-screen-content">
+            <div class="swiper categories-nav container" id="categories-nav">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide categories-nav-item active" data-category="all">Все категории</div>
+                    <div class="swiper-slide categories-nav-item" data-category="1">Пиццы</div>
+                    <div class="swiper-slide categories-nav-item" data-category="2">Блюда</div>
+                    <div class="swiper-slide categories-nav-item" data-category="3">Категория</div>
+                    <div class="swiper-slide categories-nav-item" data-category="4">Категория</div>
+                    <div class="swiper-slide categories-nav-item" data-category="5">Категория</div>
+                    <div class="swiper-slide categories-nav-item" data-category="6">Категория</div>
+                    <div class="swiper-slide categories-nav-item" data-category="7">Категория</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="categories-wrapper d-flex flex-column">
+                    <div class="category-wrapper" id="category-1">
+                        <div class="title category-title">Пиццы</div>
+                        <div class="d-flex flex-column gap-10" data-category-wrapper="1"></div>
+                    </div>
+
+                    <div class="category-wrapper" id="category-2">
+                        <div class="title category-title">Блюда</div>
+                        <div class="category-grid" data-category-wrapper="2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dish-review d-flex align-center flex-column" id="dish-review">
+        <div class="dish-review-close-btn" id="close-dish-review"></div>
+        <div class="dish-review-image">
+            <img src="./images/categories/image1.png" alt="">
+        </div>
+        <div class="container dish-review-content d-flex flex-column justify-space-between">
+            <div>
+                <div class="title dish-review-title">Название блюда</div>
+                <div class="dish-review-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, excepturi!</div>
+                <div class="dish-review-count">1 шт.</div>
+                <div class="dish-review-additional-title">Дополнительные опции</div>
+                <div class="dish-review-additional-wrapper">
+                    <div class="dish-review-additional-item">
+                        <div>+ что-то</div>
+                        <div>100 ₽</div>
+                    </div>
+                    <div class="dish-review-additional-item">
+                        <div>+ что-то</div>
+                        <div>100 ₽</div>
+                    </div>
+                    <div class="dish-review-additional-item">
+                        <div>+ что-то</div>
+                        <div>100 ₽</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="dish-review-add-button">+ 9 999 ₽</div>
+                <div class="dish-review-more-button d-flex flex-column align-center">
+                    <span>Подробнее</span>
+                    <div class="dish-review-more-button-arrow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="navigation" class="navigation d-flex align-center justify-space-between">
+        <button type="button" class="navigation-item active" data-screen="main">
+            <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.3194 1.03123C19.5305 0.365252 18.5318 0 17.5 0C16.4682 0 15.4695 0.365252 14.6806 1.03123L1.55556 12.1218C1.06839 12.533 0.676781 13.0458 0.408095 13.6243C0.139409 14.2029 0.000131695 14.8332 0 15.4713V33.592C0 35.4732 1.52444 37 3.40278 37H9.23611C10.1386 37 11.0041 36.6409 11.6422 36.0018C12.2804 35.3627 12.6389 34.4959 12.6389 33.592V25.7965C12.6389 24.4723 13.6928 23.3973 15.0053 23.3622H19.9947C20.6282 23.379 21.23 23.6428 21.6721 24.0976C22.1141 24.5523 22.3613 25.1619 22.3611 25.7965V33.592C22.3611 35.4732 23.8856 37 25.7639 37H31.5972C32.4997 37 33.3652 36.6409 34.0033 36.0018C34.6415 35.3627 35 34.4959 35 33.592V15.4694C34.9999 14.8313 34.8606 14.2009 34.5919 13.6224C34.3232 13.0438 33.9316 12.531 33.4444 12.1198L20.3194 1.03123Z" fill="#D62331" />
+            </svg>
+        </button>
+        <button type="button" class="navigation-item" data-screen="categories">
+            <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.8333 0H1.83333C1.3471 0 0.880787 0.193154 0.536971 0.536971C0.193154 0.880787 0 1.3471 0 1.83333V12.8333C0 13.3196 0.193154 13.7859 0.536971 14.1297C0.880787 14.4735 1.3471 14.6667 1.83333 14.6667H12.8333C13.3196 14.6667 13.7859 14.4735 14.1297 14.1297C14.4735 13.7859 14.6667 13.3196 14.6667 12.8333V1.83333C14.6667 1.3471 14.4735 0.880787 14.1297 0.536971C13.7859 0.193154 13.3196 0 12.8333 0ZM31.1667 0H20.1667C19.6804 0 19.2141 0.193154 18.8703 0.536971C18.5265 0.880787 18.3333 1.3471 18.3333 1.83333V12.8333C18.3333 13.3196 18.5265 13.7859 18.8703 14.1297C19.2141 14.4735 19.6804 14.6667 20.1667 14.6667H31.1667C31.6529 14.6667 32.1192 14.4735 32.463 14.1297C32.8068 13.7859 33 13.3196 33 12.8333V1.83333C33 1.3471 32.8068 0.880787 32.463 0.536971C32.1192 0.193154 31.6529 0 31.1667 0ZM12.8333 18.3333H1.83333C1.3471 18.3333 0.880787 18.5265 0.536971 18.8703C0.193154 19.2141 0 19.6804 0 20.1667V31.1667C0 31.6529 0.193154 32.1192 0.536971 32.463C0.880787 32.8068 1.3471 33 1.83333 33H12.8333C13.3196 33 13.7859 32.8068 14.1297 32.463C14.4735 32.1192 14.6667 31.6529 14.6667 31.1667V20.1667C14.6667 19.6804 14.4735 19.2141 14.1297 18.8703C13.7859 18.5265 13.3196 18.3333 12.8333 18.3333ZM25.6667 18.3333C27.1014 18.3333 28.5047 18.7542 29.7026 19.5439C30.9006 20.3335 31.8406 21.4572 32.4062 22.7758C32.9718 24.0944 33.1381 25.55 32.8847 26.9622C32.6312 28.3744 31.969 29.6812 30.9802 30.7208C29.9913 31.7604 28.7192 32.4871 27.3214 32.8109C25.9237 33.1346 24.4616 33.0412 23.1164 32.5423C21.7712 32.0433 20.6019 31.1607 19.7533 30.0037C18.9048 28.8468 18.4142 27.4663 18.3425 26.0333L18.3333 25.6667L18.3425 25.3C18.4366 23.4209 19.2493 21.6499 20.6125 20.3532C21.9757 19.0565 23.7852 18.3333 25.6667 18.3333Z" fill="#859155" />
+            </svg>
+        </button>
+        <button type="button" class="navigation-item" data-screen="">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.65 0C9.0558 0.0072 5.1282 0.144 2.6352 2.6352C0.144 5.13 0.0072 9.0558 0 16.65H8.8452C8.19859 15.8418 7.73383 14.9037 7.4826 13.8996C6.516 10.026 10.026 6.516 13.8996 7.4826C14.9292 7.74 15.8616 8.2134 16.65 8.8452V0ZM0 19.35C0.0072 26.9424 0.144 30.87 2.6352 33.363C5.13 35.856 9.0558 35.991 16.65 36V21.8214C15.94 23.2424 14.8482 24.4376 13.497 25.2728C12.1457 26.108 10.5885 26.5503 9 26.55C8.64196 26.55 8.29858 26.4078 8.04541 26.1546C7.79223 25.9014 7.65 25.558 7.65 25.2C7.65 24.842 7.79223 24.4986 8.04541 24.2454C8.29858 23.9922 8.64196 23.85 9 23.85C10.317 23.8503 11.5956 23.4062 12.6288 22.5895C13.662 21.7729 14.3895 20.6315 14.6934 19.35H0ZM19.35 36C26.9424 35.991 30.87 35.856 33.363 33.363C35.856 30.8718 35.991 26.9424 36 19.35H21.3066C21.6105 20.6315 22.338 21.7729 23.3712 22.5895C24.4044 23.4062 25.683 23.8503 27 23.85C27.358 23.85 27.7014 23.9922 27.9546 24.2454C28.2078 24.4986 28.35 24.842 28.35 25.2C28.35 25.558 28.2078 25.9014 27.9546 26.1546C27.7014 26.4078 27.358 26.55 27 26.55C25.4115 26.5503 23.8543 26.108 22.503 25.2728C21.1518 24.4376 20.06 23.2424 19.35 21.8214V36ZM36 16.65C35.991 9.0558 35.856 5.1282 33.363 2.6352C30.8718 0.144 26.9424 0.0072 19.35 0V8.8452C20.1577 8.19882 21.0952 7.73407 22.0986 7.4826C25.974 6.5142 29.4858 10.0242 28.5156 13.8996C28.2649 14.9035 27.8008 15.8416 27.1548 16.65H36Z" fill="#859155" />
+            </svg>
+        </button>
+        <button type="button" class="navigation-item" data-screen="">
+            <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2778 8.22222C10.2778 6.04155 11.144 3.9502 12.686 2.40823C14.228 0.866267 16.3193 0 18.5 0C20.6807 0 22.772 0.866267 24.314 2.40823C25.856 3.9502 26.7222 6.04155 26.7222 8.22222C26.7222 10.4029 25.856 12.4942 24.314 14.0362C22.772 15.5782 20.6807 16.4444 18.5 16.4444C16.3193 16.4444 14.228 15.5782 12.686 14.0362C11.144 12.4942 10.2778 10.4029 10.2778 8.22222ZM10.2778 20.5556C7.55194 20.5556 4.93775 21.6384 3.01029 23.5658C1.08283 25.4933 0 28.1075 0 30.8333C0 32.4688 0.649701 34.0374 1.80618 35.1938C2.96265 36.3503 4.53117 37 6.16667 37H30.8333C32.4688 37 34.0374 36.3503 35.1938 35.1938C36.3503 34.0374 37 32.4688 37 30.8333C37 28.1075 35.9172 25.4933 33.9897 23.5658C32.0623 21.6384 29.4481 20.5556 26.7222 20.5556H10.2778Z" fill="#859155" />
+            </svg>
+        </button>
+    </div>
+<script>
+    // Скрытие начального экрана
+    const initialScreen = document.querySelector('.initial-screen')
+    setTimeout(() => {
+        initialScreen.classList.add('done')
+        document.body.classList.remove('no-scroll')
+    }, 2000)
+    setTimeout(() => { initialScreen.style.display = 'none' }, 3000)
+
+    // Свайпер сторис
+    new Swiper('.main-screen-stories', {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
+        freeMode: true,
+    });
+
+    // Свайпер навигации категорий
+    new Swiper('.categories-nav', {
+        spaceBetween: 13,
+        slidesPerView: 'auto',
+        freeMode: true,
+    });
+
+    // Переключение вкладок
+    const navigation = document.getElementById('navigation')
+    navigation.addEventListener('click', e => {
+        const navBtn = e.target.closest('.navigation-item')
+        if (navBtn) {
+            navigation.querySelector('.navigation-item.active').classList.remove('active')
+            navBtn.classList.add('active')
+            document.body.setAttribute('data-screen', navBtn.getAttribute('data-screen'))
+        }
+    })
+
+    const dishCategories = [
+        {
+            name: 'Пиццы',
+            items: [
+                {
+                    name: 'Пицца 1',
+                    desc: 'Описание пиццы 1',
+                    price: 999,
+                    id: 1,
+                    image: './images/categories/pizza/1.png'
+                },
+                {
+                    name: 'Пицца 2',
+                    desc: 'Описание пиццы 2',
+                    price: 9999,
+                    id: 2,
+                    image: './images/categories/pizza/2.png'
+                },
+            ]
+        },
+        {
+            name: 'Блюда',
+            items: [
+                {
+                    name: 'Блюдо 1',
+                    desc: 'Описание блюда 1',
+                    price: 888,
+                    id: 3,
+                    image: './images/categories/dishes/1.png'
+                },
+                {
+                    name: 'Блюдо 2',
+                    desc: 'Описание блюда 2',
+                    price: 888,
+                    id: 4,
+                    image: './images/categories/dishes/2.png'
+                },
+                {
+                    name: 'Блюдо 3',
+                    desc: 'Описание блюда 3',
+                    price: 888,
+                    id: 5,
+                    image: './images/categories/dishes/3.png'
+                },
+                {
+                    name: 'Блюдо 4',
+                    desc: 'Описание блюда 4',
+                    price: 888,
+                    id: 6,
+                    image: './images/categories/dishes/4.png'
+                },
+            ]
+        },
+    ]
+
+    function completeCategories() {
+        dishCategories.forEach((category, i) => {
+            const categoryHTML = document.querySelector(`[data-category-wrapper='${i+1}']`)
+            category.items.forEach(item => {
+                categoryHTML.insertAdjacentHTML('beforeend', `
+            <div class="category-item ${category.name === 'Пиццы' ? 'category-item--horizontal' : 'category-item--vertical'} d-flex" data-id="${item.id}">
+                <div class="category-item-img">
+                    <img src="${item.image}" alt="">
+                </div>
+                <div class="category-item-text-wrapper">
+                    <div class="category-item-title">${item.name}</div>
+                    ${category.name === 'Пиццы' ? `<div class="category-item-description">${item.desc}</div>` : ''}
+                    <div class="category-item-price">${item.price} ₽</div>
+                </div>
+                <div class="category-item-btn"></div>
+            </div>
+            `)
+            })
+        })
+    }
+    completeCategories()
+
+    // Выбор категории блюд
+    const categoriesNav = document.getElementById('categories-nav')
+    categoriesNav.addEventListener('click', e => {
+        if (e.target.classList.contains('categories-nav-item')) {
+            if (e.target.getAttribute('data-category') === 'all') {
+                document.querySelectorAll('.category-wrapper').forEach(c => {
+                    c.classList.remove('hidden')
+                })
+            } else {
+                document.querySelectorAll('.category-wrapper').forEach(c => {
+                    c.classList.add('hidden')
+                })
+                document.getElementById(`category-${e.target.getAttribute('data-category')}`)?.classList.remove('hidden')
+            }
+            categoriesNav.querySelector('.categories-nav-item.active').classList.remove('active')
+            e.target.classList.add('active')
+        }
+    })
+
+    // Открытие блюда
+    const dishesHTML = document.querySelectorAll('.category-item')
+    const dishReviewHTML = document.getElementById('dish-review')
+    const dishReviewTitle = dishReviewHTML.querySelector('.dish-review-title')
+    const dishReviewDescription = dishReviewHTML.querySelector('.dish-review-description')
+    const dishReviewAddButton = dishReviewHTML.querySelector('.dish-review-add-button')
+    const dishReviewImage = dishReviewHTML.querySelector('.dish-review-image img')
+
+    dishesHTML.forEach(dish => {
+        dish.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('category-item-btn')) {
+                dishReviewHTML.classList.add('active')
+                document.body.classList.add('no-scroll')
+                const currentCategoryObj = dishCategories.find(category => {
+                    return category.items.find(item => item.id === +dish.getAttribute('data-id'))
+                })
+                const currentDishObj = currentCategoryObj.items.find(item => item.id === +dish.getAttribute('data-id'))
+                completeDishReview(currentDishObj)
+            }
+        })
+    })
+
+    function completeDishReview(dishObj) {
+        dishReviewImage.src = dishObj.image
+        dishReviewTitle.innerHTML = dishObj.name
+        dishReviewDescription.innerHTML = dishObj.desc
+        dishReviewAddButton.innerHTML = `+ ${dishObj.price} ₽`
+    }
+
+    // Закрытие блюда
+    document.getElementById('close-dish-review').addEventListener('click', () => {
+        dishReviewHTML.classList.remove('active')
+        document.body.classList.remove('no-scroll')
+    })
+</script>
+</body>
+</html>
