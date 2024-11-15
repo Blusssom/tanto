@@ -527,7 +527,9 @@
             if (currentDishObj.count === 0) {
                 const index = cart.findIndex(dish => dish.id === dishId)
                 cart.splice(index, 1)
-                cartScreen.classList.add('empty')
+                if (cart.length === 0) {
+                    cartScreen.classList.add('empty')
+                }
             }
             updateCartStatus()
         }
