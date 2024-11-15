@@ -101,7 +101,7 @@ select {
     --red: #D62331;
     --dark: #1E1E1E;
     --dark-green: #272C23;
-    --light-grey-bg: rgba(133, 145, 85, 0.2);
+    --light-grey-bg: #e5e7db;
     --dark-green: #37412f;
     --dark-green-border: #859155;
 
@@ -377,6 +377,10 @@ body[data-screen="categories"] .cart-button{
 }
 .category-item-description {
     margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .category-item-price {
     font-weight: 700;
@@ -423,7 +427,7 @@ body[data-screen="categories"] .cart-button{
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 200;
+    z-index: 300;
     width: 100vw;
     height: 100vh;
     background-color: var(--main-background);
@@ -569,6 +573,7 @@ body[data-screen="categories"] .cart-button{
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
+    display: block;
 }
 .cart-screen-empty {
     display: none;
@@ -612,9 +617,12 @@ body[data-screen="categories"] .cart-button{
     position: relative;
 }
 .cart-product-image {
-    width: 110px;
-    height: 98px;
+    max-width: 110px;
+    width: 100%;
+    max-height: 98px;
+    height: 100%;
     border-radius: 5px;
+    overflow: hidden;
 }
 .cart-product-image img {
     width: 100%;
@@ -625,6 +633,12 @@ body[data-screen="categories"] .cart-button{
     font-weight: 700;
     font-size: 15px;
     margin-bottom: 4px;
+}
+.cart-product-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 .cart-product-text-wrapper {
     display: flex;
@@ -679,6 +693,7 @@ body[data-screen="categories"] .cart-button{
     width: 109px;
     height: 98px;
     border-radius: 5px;
+    overflow: hidden;
     margin-bottom: 6px;
 }
 .cart-addition-item-image img {
@@ -729,5 +744,99 @@ body[data-screen="categories"] .cart-button{
     background-color: var(--light-grey-bg);
     padding: 13px 0;
     width: 100%;
+    text-align: center;
+}
+
+.drag-element {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transition: transform .3s linear;
+    transform: translateY(100%);
+    max-height: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.drag-element-trigger {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.drag-element.active {
+    transform: translateY(0);
+    max-height: 480px;
+    display: block;
+}
+.drag-element.folded {
+    transform: translateY(calc(100% - 80px)) !important;
+    max-height: 80px;
+    display: block;
+}
+.drag-element-trigger div {
+    width: 50px;
+    height: 5px;
+    background-color: var(--dark-green);
+    border-radius: 7px;
+}
+
+/* Dish Checkout */
+.cart-checkout {
+    z-index: 201;
+    width: 100%;
+    padding: 30px 0 45px;
+    background-color: var(--light-grey-bg);
+    border-top: 1px solid var(--dark-green);
+    font-size: 16px;
+    display: none;
+}
+.cart-checkout-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.cart-checkout-input {
+    border: 1px solid var(--dark-green);
+    border-radius: 5px;
+    padding: 13px 20px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.cart-checkout-time-inputs {
+    padding: 0 30px;
+}
+.cart-checkout-time-inputs .cart-checkout-input {
+    max-width: 122px;
+    width: 100%;
+    white-space: nowrap;
+}
+.cart-checkout-input-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid var(--dark-green);
+    border-right: 3px solid var(--dark-green);
+    transform: translateY(-50%) rotate(45deg);
+}
+.cart-checkout-input-title {
+    margin: 18px 0 7px;
+    font-weight: 700;
+}
+.cart-checkout-button {
+    margin-top: 40px;
+    font-size: 18px;
+    background: rgba(133, 145, 85, 0.25);
+    border-radius: var(--border-radius-def);
+    border: 1px solid var(--dark-green);
+    padding: 16px 0;
     text-align: center;
 }

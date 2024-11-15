@@ -133,44 +133,7 @@
         <div class="cart-screen-content">
             <div class="container">
                 <div class="cart-text">2 товара на сумму 9 999 ₽</div>
-                <div class="cart-products d-flex flex-column">
-                    <div class="cart-product">
-                        <div class="cart-product-image">
-                            <img src="./images/categories/pizza/1.png" alt="">
-                        </div>
-                        <div class="cart-product-text-wrapper">
-                            <div>
-                                <div class="cart-product-title">Название блюда</div>
-                                <div class="cart-product-description">Характеристики характеристики</div>
-                            </div>
-                            <div class="cart-product-price">9 999 ₽</div>
-                        </div>
-                        <div class="cart-product-modify-btn">Изменить</div>
-                        <div class="cart-product-count">
-                            <button type="button">-</button>
-                            <div class="cart-product-count-number">1</div>
-                            <button type="button">+</button>
-                        </div>
-                    </div>
-                    <div class="cart-product">
-                        <div class="cart-product-image">
-                            <img src="./images/categories/pizza/1.png" alt="">
-                        </div>
-                        <div class="cart-product-text-wrapper">
-                            <div>
-                                <div class="cart-product-title">Название блюда</div>
-                                <div class="cart-product-description">Характеристики характеристики</div>
-                            </div>
-                            <div class="cart-product-price">9 999 ₽</div>
-                        </div>
-                        <div class="cart-product-modify-btn">Изменить</div>
-                        <div class="cart-product-count">
-                            <button type="button">-</button>
-                            <div class="cart-product-count-number">1</div>
-                            <button type="button">+</button>
-                        </div>
-                    </div>
-                </div>
+                <div class="cart-products d-flex flex-column"></div>
             </div>
 
             <div class="cart-addition-wrapper">
@@ -178,44 +141,7 @@
                     <div class="cart-addition-title">Добавить к заказу?</div>
                 </div>
                 <div class="swiper cart-addition-items">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide cart-addition-item">
-                            <div class="cart-addition-item-image">
-                                <img src="./images/categories/dishes/1.png" alt="">
-                            </div>
-                            <div class="cart-addition-item-text">
-                                <div>Название блюда</div>
-                                <div class="cart-addition-item-price">9 999 ₽</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cart-addition-item">
-                            <div class="cart-addition-item-image">
-                                <img src="./images/categories/dishes/1.png" alt="">
-                            </div>
-                            <div class="cart-addition-item-text">
-                                <div>Название блюда</div>
-                                <div class="cart-addition-item-price">9 999 ₽</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cart-addition-item">
-                            <div class="cart-addition-item-image">
-                                <img src="./images/categories/dishes/1.png" alt="">
-                            </div>
-                            <div class="cart-addition-item-text">
-                                <div>Название блюда</div>
-                                <div class="cart-addition-item-price">9 999 ₽</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide cart-addition-item">
-                            <div class="cart-addition-item-image">
-                                <img src="./images/categories/dishes/1.png" alt="">
-                            </div>
-                            <div class="cart-addition-item-text">
-                                <div>Название блюда</div>
-                                <div class="cart-addition-item-price">9 999 ₽</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="swiper-wrapper" id="cartAdditionWrapper"></div>
                 </div>
             </div>
 
@@ -247,6 +173,38 @@
             </div>
         </div>
         <div class="cart-screen-empty">Корзина пуста.</div>
+    </div>
+    <div class="cart-checkout drag-element" id="cartCheckout">
+        <div class="drag-element-trigger">
+            <div></div>
+        </div>
+        <div class="container">
+            <div class="cart-checkout-title title">На доставку</div>
+            <div class="cart-checkout-input">
+                <div>Указать адрес</div>
+                <div class="cart-checkout-input-arrow"></div>
+            </div>
+            <div class="cart-checkout-input-title">Время доставки</div>
+        </div>
+        <div class="swiper cart-checkout-time-inputs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide cart-checkout-input">Побыстрее</div>
+                <div class="swiper-slide cart-checkout-input">00:00-00:00</div>
+                <div class="swiper-slide cart-checkout-input">00:00-00:00</div>
+                <div class="swiper-slide cart-checkout-input">00:00-00:00</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="cart-checkout-input-title">Способ оплаты</div>
+            <div class="cart-checkout-input">
+                <svg width="25" height="17" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.55556 2.23333H4.95556V2.83333C4.95556 3.42944 4.72328 3.9988 4.31352 4.41676C3.90415 4.83432 3.35148 5.06667 2.77778 5.06667H2.17778V5.66667V11.3333V11.9333H2.77778C3.35148 11.9333 3.90415 12.1657 4.31352 12.5832C4.72328 13.0012 4.95556 13.5706 4.95556 14.1667V14.7667H5.55556H19.4444H20.0444V14.1667C20.0444 13.5706 20.2767 13.0012 20.6865 12.5832C21.0958 12.1657 21.6485 11.9333 22.2222 11.9333H22.8222V11.3333V5.66667V5.06667H22.2222C21.6485 5.06667 21.0958 4.83432 20.6865 4.41676C20.2767 3.9988 20.0444 3.42944 20.0444 2.83333V2.23333H19.4444H5.55556ZM0.6 0.6H24.4V16.4H0.6V0.6ZM12.5 4.85C13.4421 4.85 14.348 5.23161 15.0178 5.91484C15.6881 6.59847 16.0667 7.52817 16.0667 8.5C16.0667 9.47183 15.6881 10.4015 15.0178 11.0852C14.348 11.7684 13.4421 12.15 12.5 12.15C11.5579 12.15 10.652 11.7684 9.98216 11.0852C9.31193 10.4015 8.93333 9.47183 8.93333 8.5C8.93333 7.52817 9.31193 6.59847 9.98216 5.91484C10.652 5.23161 11.5579 4.85 12.5 4.85Z" stroke="#6C7548" stroke-width="1.2" />
+                </svg>
+                <div>Наличными</div>
+                <div class="cart-checkout-input-arrow"></div>
+            </div>
+            <div class="cart-checkout-button title">Оплатить <span id="cartCheckoutTotalCount"></span> ₽</div>
+        </div>
     </div>
 
     <div class="cart-button" id="cartButton">0</div>
@@ -313,17 +271,19 @@
             items: [
                 {
                     name: 'Пицца 1',
-                    desc: 'Описание пиццы 1',
-                    price: 999,
+                    desc: 'Описание пиццы 1 Описание пиццы 1 Описание пиццы 1 Описание пиццы 1 Описание пиццы 1',
+                    price: 900,
                     id: 1,
-                    image: './images/categories/pizza/1.png'
+                    image: './images/categories/pizza/1.png',
+                    count: 1,
                 },
                 {
                     name: 'Пицца 2',
                     desc: 'Описание пиццы 2',
-                    price: 9999,
+                    price: 1000,
                     id: 2,
-                    image: './images/categories/pizza/2.png'
+                    image: './images/categories/pizza/2.png',
+                    count: 1,
                 },
             ]
         },
@@ -333,34 +293,40 @@
                 {
                     name: 'Блюдо 1',
                     desc: 'Описание блюда 1',
-                    price: 888,
+                    price: 800,
                     id: 3,
-                    image: './images/categories/dishes/1.png'
+                    image: './images/categories/dishes/1.png',
+                    count: 1,
                 },
                 {
                     name: 'Блюдо 2',
                     desc: 'Описание блюда 2',
-                    price: 888,
+                    price: 800,
                     id: 4,
-                    image: './images/categories/dishes/2.png'
+                    image: './images/categories/dishes/2.png',
+                    count: 1,
                 },
                 {
                     name: 'Блюдо 3',
                     desc: 'Описание блюда 3',
-                    price: 888,
+                    price: 800,
                     id: 5,
-                    image: './images/categories/dishes/3.png'
+                    image: './images/categories/dishes/3.png',
+                    count: 1,
                 },
                 {
                     name: 'Блюдо 4',
                     desc: 'Описание блюда 4',
-                    price: 888,
+                    price: 800,
                     id: 6,
-                    image: './images/categories/dishes/4.png'
+                    image: './images/categories/dishes/4.png',
+                    count: 1,
                 },
             ]
         },
     ]
+    const cart = []
+    let lastOpenedDish
 
     function completeCategories() {
         dishCategories.forEach((category, i) => {
@@ -414,16 +380,28 @@
     dishesHTML.forEach(dish => {
         dish.addEventListener('click', (e) => {
             if (!e.target.classList.contains('category-item-btn')) {
-                dishReviewHTML.classList.add('active')
-                document.body.classList.add('no-scroll')
-                const currentCategoryObj = dishCategories.find(category => {
-                    return category.items.find(item => item.id === +dish.getAttribute('data-id'))
-                })
-                const currentDishObj = currentCategoryObj.items.find(item => item.id === +dish.getAttribute('data-id'))
-                completeDishReview(currentDishObj)
+                openDishReview(dish.getAttribute('data-id'))
+            } else {
+                addToCart(dish.getAttribute('data-id'))
             }
         })
     })
+
+    function openDishReview(dishId) {
+        const dishObj = getDishObjById(dishId)
+        completeDishReview(dishObj)
+        dishReviewHTML.setAttribute('data-dish-id', dishObj.id)
+        dishReviewHTML.classList.add('active')
+        document.body.classList.add('no-scroll')
+        lastOpenedDish = dishObj
+    }
+
+    function getDishObjById(dishId) {
+        const categoryObj = dishCategories.find(category => {
+            return category.items.find(item => item.id === +dishId)
+        })
+        return categoryObj.items.find(item => item.id === +dishId)
+    }
 
     function completeDishReview(dishObj) {
         dishReviewImage.src = dishObj.image
@@ -432,12 +410,34 @@
         dishReviewAddButton.innerHTML = `+ ${dishObj.price} ₽`
     }
 
+    // Добавление в корзину с обзора
+    dishReviewAddButton.addEventListener('click', () => {
+        addToCart(lastOpenedDish.id)
+    })
+
+    // Добавление в корзину
+    function addToCart(dishId) {
+        const dishObj = getDishObjById(dishId)
+        if (!cart.find(dish => dish.id === dishObj.id)) {
+            cart.push(JSON.parse(JSON.stringify(dishObj)))
+            updateCartStatus()
+        }
+    }
+
     // Закрытие попапов
     document.querySelectorAll('.popup-close-button').forEach(button => {
         button.addEventListener('click', () => {
             const popup = button.closest('.popup')
             popup.classList.remove('active')
             document.body.classList.remove('no-scroll')
+            if (popup.classList.contains('dish-review') && document.querySelector('.cart-screen').classList.contains('active')) {
+                document.body.classList.add('no-scroll')
+            }
+            if (popup.classList.contains('cart-screen')) {
+                cartCheckout.classList.remove('active')
+                cartCheckout.classList.remove('folded')
+                popup.style.paddingBottom = '30px'
+            }
         })
     })
 
@@ -445,12 +445,141 @@
     const cartButton = document.getElementById('cartButton')
     const cartScreen = document.getElementById('cartScreen')
     cartButton.addEventListener('click', () => {
+        if (cartScreen.classList.contains('empty')) cartScreen.classList.remove('empty')
+        if (cart.length === 0) cartScreen.classList.add('empty')
         cartScreen.classList.add('active')
         document.body.classList.add('no-scroll')
     })
 
+    // Обновление состония корзины
+    const cartProductsWrapper = cartScreen.querySelector('.cart-products')
+    function updateCartStatus() {
+        const dishesCount = cart.reduce((acc, dish) => acc + dish.count, 0)
+        cartButton.innerHTML = cart.length
+        cartScreen.querySelector('.cart-text').innerHTML = `
+        ${dishesCount} товар${dishesCount === 1 ? '' : dishesCount > 1 && dishesCount < 5 ? 'а' : 'ов'} на сумму ${cart.reduce((acc, dish) => acc + dish.price * dish.count, 0)} ₽
+        `
+        cartProductsWrapper.innerHTML = ''
+        cart.forEach(item => {
+            cartProductsWrapper.insertAdjacentHTML('beforeend', `
+            <div class="cart-product" data-id="${item.id}">
+                <div class="cart-product-image">
+                    <img src="${item.image}" alt="">
+                </div>
+                <div class="cart-product-text-wrapper">
+                    <div>
+                        <div class="cart-product-title">${item.name}</div>
+                        <div class="cart-product-description">${item.desc}</div>
+                    </div>
+                    <div class="cart-product-price">${item.price} ₽</div>
+                </div>
+                <div class="cart-product-modify-btn">Изменить</div>
+                <div class="cart-product-count">
+                    <button type="button" data-type="less">-</button>
+                    <div class="cart-product-count-number">${item.count}</div>
+                    <button type="button" data-type="more">+</button>
+                </div>
+            </div>
+            `)
+        })
+
+        const cartAdditionWrapper = document.getElementById('cartAdditionWrapper')
+        cartAdditionWrapper.innerHTML = ''
+        dishCategories.forEach(category => {
+            category.items.forEach(item => {
+                if (!cart.find(dish => dish.id === item.id)) {
+                    cartAdditionWrapper.insertAdjacentHTML('beforeend', `
+                    <div class="swiper-slide cart-addition-item" data-id="${item.id}">
+                        <div class="cart-addition-item-image">
+                            <img src="${item.image}" alt="">
+                        </div>
+                        <div class="cart-addition-item-text">
+                            <div>${item.name}</div>
+                            <div class="cart-addition-item-price">${item.price} ₽</div>
+                        </div>
+                    </div>
+                    `)
+                }
+            })
+        })
+        document.getElementById('cartCheckoutTotalCount').innerHTML = cart.reduce((acc, dish) => acc + dish.count * dish.price, 0)
+    }
+
+    const cartCheckoutOpenButton = cartScreen.querySelector('.cart-main-button')
+    const cartCheckout = document.getElementById('cartCheckout')
+
+    cartScreen.addEventListener('click', (e) => {
+        //Открытие обзора блюда с корзины
+        if (e.target.classList.contains('cart-product-modify-btn')) {
+            openDishReview(e.target.closest('.cart-product').getAttribute('data-id'))
+        }
+        if (e.target.closest('.cart-addition-item')) {
+            openDishReview(e.target.closest('.cart-addition-item').getAttribute('data-id'))
+        }
+
+        // Изменение количества блюд
+        if (e.target.closest('.cart-product-count') && e.target.hasAttribute('data-type')) {
+            const action = e.target.getAttribute('data-type')
+            const dishId = +e.target.closest('.cart-product').getAttribute('data-id')
+            const currentDishObj = cart.find(dish => dish.id === dishId)
+            if (action === 'more') currentDishObj.count += 1
+            else currentDishObj.count -= 1
+            if (currentDishObj.count === 0) {
+                const index = cart.findIndex(dish => dish.id === dishId)
+                cart.splice(index, 1)
+                cartScreen.classList.add('empty')
+            }
+            updateCartStatus()
+        }
+
+        // Сворачивание Cart Checkout
+        if (!e.target.classList.contains('cart-main-button') && cartCheckout.classList.contains('active')) {
+            cartCheckout.classList.remove('active')
+            cartCheckout.classList.add('folded')
+        }
+    })
+
     // Свайпер дополнений к заказу
     createFreeModeSwiper('.cart-addition-items', 10)
+
+    createFreeModeSwiper('.cart-checkout-time-inputs', 9)
+
+    // Открытие Cart Checkout
+    cartCheckoutOpenButton.addEventListener('click', () => {
+        cartScreen.style.paddingBottom = '110px'
+        cartCheckout.style.display = 'block'
+        setTimeout(() => {
+            cartCheckout.classList.remove('folded')
+            cartCheckout.classList.add('active')
+        }, 0)
+    })
+
+    // Сворачивание Drag Element
+    document.querySelectorAll('.drag-element').forEach(dragElement => {
+        const trigger = dragElement.querySelector('.drag-element-trigger')
+        let startPosY, endPosY
+        trigger.addEventListener('touchstart', (e) => {
+            startPosY = e.touches[0].clientY
+            dragElement.style.transition = 'none'
+        })
+        trigger.addEventListener('touchmove', (e) => {
+            const currentY = e.touches[0].clientY;
+            const diffY = currentY - startPosY;
+            dragElement.style.transform = `translateY(${diffY > 0 ? diffY : 0}px)`
+            endPosY = currentY
+        })
+        trigger.addEventListener('touchend', () => {
+            dragElement.style.transition = 'transform .3s linear'
+            if (startPosY < endPosY) {
+                dragElement.classList.remove('active')
+                dragElement.classList.add('folded')
+            } else if (startPosY > endPosY) {
+                dragElement.classList.remove('folded')
+                dragElement.classList.add('active')
+            }
+            dragElement.style = ''
+        })
+    })
 </script>
 </body>
 </html>
