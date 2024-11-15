@@ -14,6 +14,16 @@
     <div class="initial-screen">
         <img class="initial-screen-decoration-top" src="./images/decorations/initial-top.svg" alt="">
         <img class="big-logo" src="./images/logo.png" alt="TANTO">
+        <div class="authorization-form d-flex flex-column align-center">
+            <div class="authorization-form-title title">Авторизация</div>
+            <input data-input-type="tel" type="text" placeholder="8 999 999 99 99" maxlength="16">
+            <input data-input-type="code" type="text" placeholder="Код из СМС" maxlength="4">
+            <button class="authorization-form-button" type="button">
+                <svg width="43" height="24" viewBox="0 0 43 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M42.0607 13.0607C42.6464 12.4749 42.6464 11.5251 42.0607 10.9393L32.5147 1.3934C31.9289 0.807611 30.9792 0.807611 30.3934 1.3934C29.8076 1.97919 29.8076 2.92893 30.3934 3.51472L38.8787 12L30.3934 20.4853C29.8076 21.0711 29.8076 22.0208 30.3934 22.6066C30.9792 23.1924 31.9289 23.1924 32.5147 22.6066L42.0607 13.0607ZM0 13.5H41V10.5H0V13.5Z" fill="#D8320C" />
+                </svg>
+            </button>
+        </div>
         <img class="initial-screen-decoration-bottom" src="./images/decorations/initial-bottom.svg" alt="">
     </div>
 
@@ -231,14 +241,31 @@
             </svg>
         </button>
     </div>
+
+<script src="js/main.js" type="module"></script>
 <script>
     // Скрытие начального экрана
     const initialScreen = document.querySelector('.initial-screen')
     setTimeout(() => {
         initialScreen.classList.add('done')
-        document.body.classList.remove('no-scroll')
+        // document.body.classList.remove('no-scroll')
     }, 2000)
-    setTimeout(() => { initialScreen.style.display = 'none' }, 3000)
+
+    // Форма авторизации
+    const authorizationForm = initialScreen.querySelector('.authorization-form')
+    const authorizationFormButton = initialScreen.querySelector('.authorization-form-button')
+    authorizationFormButton.addEventListener('click', () => {
+        if (!authorizationForm.classList.contains('number-entered')) {
+            authorizationForm.classList.add('number-entered')
+        } else {
+            setTimeout(() => {
+                document.body.classList.remove('no-scroll')
+                initialScreen.classList.add('auth-completed')
+            }, 500)
+            setTimeout(() => {initialScreen.style.display = 'none'}, 1500)
+        }
+    })
+
 
     const createFreeModeSwiper = (selector, space) => {
         new Swiper(selector, {
