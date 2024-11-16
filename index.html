@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="no-scroll" data-screen="main">
+    <!-- Экран загрузки + авторизация -->
     <div class="initial-screen">
         <img class="initial-screen-decoration-top" src="./images/decorations/initial-top.svg" alt="">
         <img class="big-logo" src="./images/logo.png" alt="TANTO">
         <div class="authorization-form d-flex flex-column align-center">
             <div class="authorization-form-title title">Авторизация</div>
-            <input data-input-type="tel" type="text" placeholder="8 999 999 99 99" maxlength="16">
-            <input data-input-type="code" type="text" placeholder="Код из СМС" maxlength="4">
+            <input data-input-type="tel" type="text" placeholder="8 999 999 99 99" maxlength="16" data-number-input>
+            <input data-input-type="code" type="text" placeholder="Код из СМС" maxlength="4" data-number-input>
             <button class="authorization-form-button button" type="button">
                 <svg width="43" height="24" viewBox="0 0 43 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M42.0607 13.0607C42.6464 12.4749 42.6464 11.5251 42.0607 10.9393L32.5147 1.3934C31.9289 0.807611 30.9792 0.807611 30.3934 1.3934C29.8076 1.97919 29.8076 2.92893 30.3934 3.51472L38.8787 12L30.3934 20.4853C29.8076 21.0711 29.8076 22.0208 30.3934 22.6066C30.9792 23.1924 31.9289 23.1924 32.5147 22.6066L42.0607 13.0607ZM0 13.5H41V10.5H0V13.5Z" fill="#D8320C" />
@@ -27,6 +28,7 @@
         <img class="initial-screen-decoration-bottom" src="./images/decorations/initial-bottom.svg" alt="">
     </div>
 
+    <!-- Главный экран -->
     <div class="main-screen pt-10 content">
         <div class="main-screen-content">
             <div class="container">
@@ -99,6 +101,7 @@
         </div>
     </div>
 
+    <!-- Обзор блюда -->
     <div class="dish-review popup d-flex align-center flex-column" id="dish-review">
         <div class="dish-review-close-btn popup-close-button" id="close-dish-review"></div>
         <div class="dish-review-image">
@@ -135,6 +138,7 @@
         </div>
     </div>
 
+    <!-- Корзина -->
     <div class="cart-screen popup" id="cartScreen">
         <div class="cart-close-btn popup-close-button title d-flex align-center">
             <span>+</span>
@@ -184,6 +188,8 @@
         </div>
         <div class="cart-screen-empty">Корзина пуста.</div>
     </div>
+
+    <!-- Оплата заказа -->
     <div class="cart-checkout drag-element" id="cartCheckout">
         <div class="drag-element-trigger">
             <div></div>
@@ -219,6 +225,76 @@
 
     <div class="cart-button button" id="cartButton">0</div>
 
+    <!-- Профиль -->
+    <div class="profile-screen content">
+        <div class="profile-options container d-flex align-center justify-space-between">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.99984 13.5C9.07158 13.5 8.18134 13.1313 7.52497 12.4749C6.86859 11.8185 6.49984 10.9283 6.49984 10C6.49984 9.07174 6.86859 8.18151 7.52497 7.52513C8.18134 6.86875 9.07158 6.5 9.99984 6.5C10.9281 6.5 11.8183 6.86875 12.4747 7.52513C13.1311 8.18151 13.4998 9.07174 13.4998 10C13.4998 10.9283 13.1311 11.8185 12.4747 12.4749C11.8183 13.1313 10.9281 13.5 9.99984 13.5ZM17.4298 10.97C17.4698 10.65 17.4998 10.33 17.4998 10C17.4998 9.67 17.4698 9.34 17.4298 9L19.5398 7.37C19.7298 7.22 19.7798 6.95 19.6598 6.73L17.6598 3.27C17.5398 3.05 17.2698 2.96 17.0498 3.05L14.5598 4.05C14.0398 3.66 13.4998 3.32 12.8698 3.07L12.4998 0.420002C12.4795 0.302219 12.4182 0.195429 12.3267 0.118553C12.2351 0.0416778 12.1194 -0.000319774 11.9998 1.83347e-06H7.99984C7.74984 1.83347e-06 7.53984 0.180002 7.49984 0.420002L7.12984 3.07C6.49984 3.32 5.95984 3.66 5.43984 4.05L2.94984 3.05C2.72984 2.96 2.45984 3.05 2.33984 3.27L0.339839 6.73C0.209839 6.95 0.26984 7.22 0.45984 7.37L2.56984 9C2.52984 9.34 2.49984 9.67 2.49984 10C2.49984 10.33 2.52984 10.65 2.56984 10.97L0.45984 12.63C0.26984 12.78 0.209839 13.05 0.339839 13.27L2.33984 16.73C2.45984 16.95 2.72984 17.03 2.94984 16.95L5.43984 15.94C5.95984 16.34 6.49984 16.68 7.12984 16.93L7.49984 19.58C7.53984 19.82 7.74984 20 7.99984 20H11.9998C12.2498 20 12.4598 19.82 12.4998 19.58L12.8698 16.93C13.4998 16.67 14.0398 16.34 14.5598 15.94L17.0498 16.95C17.2698 17.03 17.5398 16.95 17.6598 16.73L19.6598 13.27C19.7798 13.05 19.7298 12.78 19.5398 12.63L17.4298 10.97Z" fill="#6C7548" />
+            </svg>
+            <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 17V18H0V17L2 15V9C2 5.9 4.03 3.17 7 2.29V2C7 1.46957 7.21071 0.960859 7.58579 0.585786C7.96086 0.210714 8.46957 0 9 0C9.53043 0 10.0391 0.210714 10.4142 0.585786C10.7893 0.960859 11 1.46957 11 2V2.29C13.97 3.17 16 5.9 16 9V15L18 17ZM11 19C11 19.5304 10.7893 20.0391 10.4142 20.4142C10.0391 20.7893 9.53043 21 9 21C8.46957 21 7.96086 20.7893 7.58579 20.4142C7.21071 20.0391 7 19.5304 7 19" fill="#D62331" fill-opacity="0.85" />
+            </svg>
+        </div>
+        <div class="profile-info d-flex flex-column align-center">
+            <div class="profile-avatar">
+                <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8333 16.6667C20.8333 12.2464 22.5893 8.00716 25.7149 4.88155C28.8405 1.75595 33.0797 0 37.5 0C41.9203 0 46.1595 1.75595 49.2851 4.88155C52.4107 8.00716 54.1667 12.2464 54.1667 16.6667C54.1667 21.0869 52.4107 25.3262 49.2851 28.4518C46.1595 31.5774 41.9203 33.3333 37.5 33.3333C33.0797 33.3333 28.8405 31.5774 25.7149 28.4518C22.5893 25.3262 20.8333 21.0869 20.8333 16.6667ZM20.8333 41.6667C15.308 41.6667 10.0089 43.8616 6.10194 47.7686C2.19493 51.6756 0 56.9747 0 62.5C0 65.8152 1.31696 68.9946 3.66117 71.3388C6.00537 73.683 9.18479 75 12.5 75H62.5C65.8152 75 68.9946 73.683 71.3388 71.3388C73.683 68.9946 75 65.8152 75 62.5C75 56.9747 72.8051 51.6756 68.8981 47.7686C64.9911 43.8616 59.692 41.6667 54.1667 41.6667H20.8333Z" fill="#859155" />
+                </svg>
+            </div>
+            <div class="profile-name">Имя</div>
+        </div>
+        <div class="profile-container d-flex flex-column">
+            <div>Адреса</div>
+            <div>Моя история</div>
+            <div style="width: 100%;">
+                <div>Способы оплаты</div>
+                <div class="swiper profile-cards">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide profile-card">
+                            <div>0865</div>
+                        </div>
+                        <div class="swiper-slide profile-card">
+                            <div>0865</div>
+                        </div>
+                        <div class="swiper-slide profile-add-card">
+                            <div class="button" id="profileAddCardButton">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>Программа лояльности</div>
+            <div>Служба поддержки</div>
+            <div>Документация</div>
+            <div class="profile-version">версия 1.0</div>
+        </div>
+    </div>
+
+    <div class="profile-card-addition drag-element" id="profileCardAddition">
+        <div class="drag-element-trigger">
+            <div></div>
+        </div>
+        <div class="container">
+            <div class="profile-card-addition-title title">Добавить новую карту</div>
+            <div class="profile-card-addition-card">
+                <div>
+                    <div class="profile-card-addition-card-label">Номер карты</div>
+                    <input class="profile-card-addition-card-input" placeholder="1234  5678  1234  5678" maxlength="16" data-number-input>
+                </div>
+                <div>
+                    <div class="profile-card-addition-card-label">Месяц/Год</div>
+                    <input class="profile-card-addition-card-input" placeholder="ММ/ГГ" maxlength="4" data-number-input>
+                </div>
+                <div>
+                    <div class="profile-card-addition-card-label">CVV/CVC</div>
+                    <input class="profile-card-addition-card-input" placeholder="123" maxlength="3" data-number-input>
+                </div>
+            </div>
+            <div class="profile-card-addition-button title">Привязать карту</div>
+            <div class="profile-card-addition-note">Какой-то важный маленький текст, который никто не читает, часто содержит ключевую информацию или инструкции, но теряется в потоке данных. В условиях избытка информации такие детали остаются незамеченными, что может привести к недопониманию или упущенным возможностям. Обращение внимания на мелочи может оказаться решающим для успешного выполнения задач.</div>
+        </div>
+    </div>
+
+    <!-- Основная навигация -->
     <div id="navigation" class="navigation d-flex align-center justify-space-between">
         <button type="button" class="navigation-item active" data-screen="main">
             <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -235,380 +311,13 @@
                 <path d="M16.65 0C9.0558 0.0072 5.1282 0.144 2.6352 2.6352C0.144 5.13 0.0072 9.0558 0 16.65H8.8452C8.19859 15.8418 7.73383 14.9037 7.4826 13.8996C6.516 10.026 10.026 6.516 13.8996 7.4826C14.9292 7.74 15.8616 8.2134 16.65 8.8452V0ZM0 19.35C0.0072 26.9424 0.144 30.87 2.6352 33.363C5.13 35.856 9.0558 35.991 16.65 36V21.8214C15.94 23.2424 14.8482 24.4376 13.497 25.2728C12.1457 26.108 10.5885 26.5503 9 26.55C8.64196 26.55 8.29858 26.4078 8.04541 26.1546C7.79223 25.9014 7.65 25.558 7.65 25.2C7.65 24.842 7.79223 24.4986 8.04541 24.2454C8.29858 23.9922 8.64196 23.85 9 23.85C10.317 23.8503 11.5956 23.4062 12.6288 22.5895C13.662 21.7729 14.3895 20.6315 14.6934 19.35H0ZM19.35 36C26.9424 35.991 30.87 35.856 33.363 33.363C35.856 30.8718 35.991 26.9424 36 19.35H21.3066C21.6105 20.6315 22.338 21.7729 23.3712 22.5895C24.4044 23.4062 25.683 23.8503 27 23.85C27.358 23.85 27.7014 23.9922 27.9546 24.2454C28.2078 24.4986 28.35 24.842 28.35 25.2C28.35 25.558 28.2078 25.9014 27.9546 26.1546C27.7014 26.4078 27.358 26.55 27 26.55C25.4115 26.5503 23.8543 26.108 22.503 25.2728C21.1518 24.4376 20.06 23.2424 19.35 21.8214V36ZM36 16.65C35.991 9.0558 35.856 5.1282 33.363 2.6352C30.8718 0.144 26.9424 0.0072 19.35 0V8.8452C20.1577 8.19882 21.0952 7.73407 22.0986 7.4826C25.974 6.5142 29.4858 10.0242 28.5156 13.8996C28.2649 14.9035 27.8008 15.8416 27.1548 16.65H36Z" fill="#859155" />
             </svg>
         </button>
-        <button type="button" class="navigation-item" data-screen="">
+        <button type="button" class="navigation-item" data-screen="profile">
             <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2778 8.22222C10.2778 6.04155 11.144 3.9502 12.686 2.40823C14.228 0.866267 16.3193 0 18.5 0C20.6807 0 22.772 0.866267 24.314 2.40823C25.856 3.9502 26.7222 6.04155 26.7222 8.22222C26.7222 10.4029 25.856 12.4942 24.314 14.0362C22.772 15.5782 20.6807 16.4444 18.5 16.4444C16.3193 16.4444 14.228 15.5782 12.686 14.0362C11.144 12.4942 10.2778 10.4029 10.2778 8.22222ZM10.2778 20.5556C7.55194 20.5556 4.93775 21.6384 3.01029 23.5658C1.08283 25.4933 0 28.1075 0 30.8333C0 32.4688 0.649701 34.0374 1.80618 35.1938C2.96265 36.3503 4.53117 37 6.16667 37H30.8333C32.4688 37 34.0374 36.3503 35.1938 35.1938C36.3503 34.0374 37 32.4688 37 30.8333C37 28.1075 35.9172 25.4933 33.9897 23.5658C32.0623 21.6384 29.4481 20.5556 26.7222 20.5556H10.2778Z" fill="#859155" />
             </svg>
         </button>
     </div>
 
-<script src="js/main.js" type="module"></script>
-<script>
-    // Скрытие начального экрана
-    const initialScreen = document.querySelector('.initial-screen')
-    setTimeout(() => {
-        initialScreen.classList.add('done')
-        // document.body.classList.remove('no-scroll')
-    }, 2000)
-
-    // Форма авторизации
-    const authorizationForm = initialScreen.querySelector('.authorization-form')
-    const authorizationFormButton = initialScreen.querySelector('.authorization-form-button')
-    authorizationFormButton.addEventListener('click', () => {
-        if (!authorizationForm.classList.contains('number-entered')) {
-            authorizationForm.classList.add('number-entered')
-        } else {
-            setTimeout(() => {
-                document.body.classList.remove('no-scroll')
-                initialScreen.classList.add('auth-completed')
-            }, 500)
-            setTimeout(() => {initialScreen.style.display = 'none'}, 1500)
-        }
-    })
-
-
-    const createFreeModeSwiper = (selector, space) => {
-        new Swiper(selector, {
-            spaceBetween: space,
-            slidesPerView: 'auto',
-            freeMode: true,
-        });
-    }
-
-    // Свайпер сторис
-    createFreeModeSwiper('.main-screen-stories', 10)
-
-    // Свайпер навигации категорий
-    createFreeModeSwiper('.categories-nav', 13)
-
-    // Переключение вкладок
-    const navigation = document.getElementById('navigation')
-    navigation.addEventListener('click', e => {
-        const navBtn = e.target.closest('.navigation-item')
-        if (navBtn) {
-            navigation.querySelector('.navigation-item.active').classList.remove('active')
-            navBtn.classList.add('active')
-            document.body.setAttribute('data-screen', navBtn.getAttribute('data-screen'))
-        }
-    })
-
-    const dishCategories = [
-        {
-            name: 'Пиццы',
-            items: [
-                {
-                    name: 'Пицца 1',
-                    desc: 'Описание пиццы 1 Описание пиццы 1 Описание пиццы 1 Описание пиццы 1 Описание пиццы 1',
-                    price: 900,
-                    id: 1,
-                    image: './images/categories/pizza/1.png',
-                    count: 1,
-                },
-                {
-                    name: 'Пицца 2',
-                    desc: 'Описание пиццы 2',
-                    price: 1000,
-                    id: 2,
-                    image: './images/categories/pizza/2.png',
-                    count: 1,
-                },
-            ]
-        },
-        {
-            name: 'Блюда',
-            items: [
-                {
-                    name: 'Блюдо 1',
-                    desc: 'Описание блюда 1',
-                    price: 800,
-                    id: 3,
-                    image: './images/categories/dishes/1.png',
-                    count: 1,
-                },
-                {
-                    name: 'Блюдо 2',
-                    desc: 'Описание блюда 2',
-                    price: 800,
-                    id: 4,
-                    image: './images/categories/dishes/2.png',
-                    count: 1,
-                },
-                {
-                    name: 'Блюдо 3',
-                    desc: 'Описание блюда 3',
-                    price: 800,
-                    id: 5,
-                    image: './images/categories/dishes/3.png',
-                    count: 1,
-                },
-                {
-                    name: 'Блюдо 4',
-                    desc: 'Описание блюда 4',
-                    price: 800,
-                    id: 6,
-                    image: './images/categories/dishes/4.png',
-                    count: 1,
-                },
-            ]
-        },
-    ]
-    const cart = []
-    let lastOpenedDish
-
-    function completeCategories() {
-        dishCategories.forEach((category, i) => {
-            const categoryHTML = document.querySelector(`[data-category-wrapper='${i+1}']`)
-            category.items.forEach(item => {
-                categoryHTML.insertAdjacentHTML('beforeend', `
-            <div class="category-item ${category.name === 'Пиццы' ? 'category-item--horizontal' : 'category-item--vertical'} d-flex" data-id="${item.id}">
-                <div class="category-item-img">
-                    <img src="${item.image}" alt="">
-                </div>
-                <div class="category-item-text-wrapper">
-                    <div class="category-item-title">${item.name}</div>
-                    ${category.name === 'Пиццы' ? `<div class="category-item-description">${item.desc}</div>` : ''}
-                    <div class="category-item-price">${item.price} ₽</div>
-                </div>
-                <div class="category-item-btn button"></div>
-            </div>
-            `)
-            })
-        })
-    }
-    completeCategories()
-
-    // Выбор категории блюд
-    const categoriesNav = document.getElementById('categories-nav')
-    categoriesNav.addEventListener('click', e => {
-        if (e.target.classList.contains('categories-nav-item')) {
-            if (e.target.getAttribute('data-category') === 'all') {
-                document.querySelectorAll('.category-wrapper').forEach(c => {
-                    c.classList.remove('hidden')
-                })
-            } else {
-                document.querySelectorAll('.category-wrapper').forEach(c => {
-                    c.classList.add('hidden')
-                })
-                document.getElementById(`category-${e.target.getAttribute('data-category')}`)?.classList.remove('hidden')
-            }
-            categoriesNav.querySelector('.categories-nav-item.active').classList.remove('active')
-            e.target.classList.add('active')
-        }
-    })
-
-    // Открытие блюда
-    const dishesHTML = document.querySelectorAll('.category-item')
-    const dishReviewHTML = document.getElementById('dish-review')
-    const dishReviewTitle = dishReviewHTML.querySelector('.dish-review-title')
-    const dishReviewDescription = dishReviewHTML.querySelector('.dish-review-description')
-    const dishReviewAddButton = dishReviewHTML.querySelector('.dish-review-add-button')
-    const dishReviewImage = dishReviewHTML.querySelector('.dish-review-image img')
-
-    dishesHTML.forEach(dish => {
-        dish.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('category-item-btn')) {
-                openDishReview(dish.getAttribute('data-id'))
-            } else {
-                addToCart(dish.getAttribute('data-id'))
-            }
-        })
-    })
-
-    function openDishReview(dishId) {
-        const dishObj = getDishObjById(dishId)
-        completeDishReview(dishObj)
-        dishReviewHTML.setAttribute('data-dish-id', dishObj.id)
-        dishReviewHTML.classList.add('active')
-        document.body.classList.add('no-scroll')
-        lastOpenedDish = dishObj
-    }
-
-    function getDishObjById(dishId) {
-        const categoryObj = dishCategories.find(category => {
-            return category.items.find(item => item.id === +dishId)
-        })
-        return categoryObj.items.find(item => item.id === +dishId)
-    }
-
-    function completeDishReview(dishObj) {
-        dishReviewImage.src = dishObj.image
-        dishReviewTitle.innerHTML = dishObj.name
-        dishReviewDescription.innerHTML = dishObj.desc
-        dishReviewAddButton.innerHTML = `+ ${dishObj.price} ₽`
-    }
-
-    // Добавление в корзину с обзора
-    dishReviewAddButton.addEventListener('click', () => {
-        addToCart(lastOpenedDish.id)
-    })
-
-    // Добавление в корзину
-    function addToCart(dishId) {
-        const dishObj = getDishObjById(dishId)
-        if (!cart.find(dish => dish.id === dishObj.id)) {
-            cart.push(JSON.parse(JSON.stringify(dishObj)))
-            updateCartStatus()
-        }
-    }
-
-    // Закрытие попапов
-    document.querySelectorAll('.popup-close-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const popup = button.closest('.popup')
-            popup.classList.remove('active')
-            document.body.classList.remove('no-scroll')
-            if (popup.classList.contains('dish-review') && document.querySelector('.cart-screen').classList.contains('active')) {
-                document.body.classList.add('no-scroll')
-            }
-            if (popup.classList.contains('cart-screen')) {
-                cartCheckout.classList.remove('active')
-                cartCheckout.classList.remove('folded')
-                popup.style.paddingBottom = '30px'
-            }
-        })
-    })
-
-    // Открытие корзины
-    const cartButton = document.getElementById('cartButton')
-    const cartScreen = document.getElementById('cartScreen')
-    cartButton.addEventListener('click', () => {
-        if (cartScreen.classList.contains('empty')) cartScreen.classList.remove('empty')
-        if (cart.length === 0) cartScreen.classList.add('empty')
-        cartScreen.classList.add('active')
-        document.body.classList.add('no-scroll')
-    })
-
-    // Обновление состония корзины
-    const cartProductsWrapper = cartScreen.querySelector('.cart-products')
-    function updateCartStatus() {
-        const dishesCount = cart.reduce((acc, dish) => acc + dish.count, 0)
-        cartButton.innerHTML = cart.length
-        cartScreen.querySelector('.cart-text').innerHTML = `
-        ${dishesCount} товар${dishesCount === 1 ? '' : dishesCount > 1 && dishesCount < 5 ? 'а' : 'ов'} на сумму ${cart.reduce((acc, dish) => acc + dish.price * dish.count, 0)} ₽
-        `
-        cartProductsWrapper.innerHTML = ''
-        cart.forEach(item => {
-            cartProductsWrapper.insertAdjacentHTML('beforeend', `
-            <div class="cart-product" data-id="${item.id}">
-                <div class="cart-product-image">
-                    <img src="${item.image}" alt="">
-                </div>
-                <div class="cart-product-text-wrapper">
-                    <div>
-                        <div class="cart-product-title">${item.name}</div>
-                        <div class="cart-product-description">${item.desc}</div>
-                    </div>
-                    <div class="cart-product-price">${item.price} ₽</div>
-                </div>
-                <div class="cart-product-modify-btn button">Изменить</div>
-                <div class="cart-product-count">
-                    <button type="button" data-type="less">-</button>
-                    <div class="cart-product-count-number">${item.count}</div>
-                    <button type="button" data-type="more">+</button>
-                </div>
-            </div>
-            `)
-        })
-
-        const cartAdditionWrapper = document.getElementById('cartAdditionWrapper')
-        cartAdditionWrapper.innerHTML = ''
-        dishCategories.forEach(category => {
-            category.items.forEach(item => {
-                if (!cart.find(dish => dish.id === item.id)) {
-                    cartAdditionWrapper.insertAdjacentHTML('beforeend', `
-                    <div class="swiper-slide cart-addition-item button" data-id="${item.id}">
-                        <div class="cart-addition-item-image">
-                            <img src="${item.image}" alt="">
-                        </div>
-                        <div class="cart-addition-item-text">
-                            <div>${item.name}</div>
-                            <div class="cart-addition-item-price">${item.price} ₽</div>
-                        </div>
-                    </div>
-                    `)
-                }
-            })
-        })
-        document.getElementById('cartCheckoutTotalCount').innerHTML = cart.reduce((acc, dish) => acc + dish.count * dish.price, 0)
-    }
-
-    const cartCheckoutOpenButton = cartScreen.querySelector('.cart-main-button')
-    const cartCheckout = document.getElementById('cartCheckout')
-
-    cartScreen.addEventListener('click', (e) => {
-        //Открытие обзора блюда с корзины
-        if (e.target.classList.contains('cart-product-modify-btn')) {
-            openDishReview(e.target.closest('.cart-product').getAttribute('data-id'))
-        }
-        if (e.target.closest('.cart-addition-item')) {
-            openDishReview(e.target.closest('.cart-addition-item').getAttribute('data-id'))
-        }
-
-        // Изменение количества блюд
-        if (e.target.closest('.cart-product-count') && e.target.hasAttribute('data-type')) {
-            const action = e.target.getAttribute('data-type')
-            const dishId = +e.target.closest('.cart-product').getAttribute('data-id')
-            const currentDishObj = cart.find(dish => dish.id === dishId)
-            if (action === 'more') currentDishObj.count += 1
-            else currentDishObj.count -= 1
-            if (currentDishObj.count === 0) {
-                const index = cart.findIndex(dish => dish.id === dishId)
-                cart.splice(index, 1)
-                if (cart.length === 0) {
-                    cartScreen.classList.add('empty')
-                }
-            }
-            updateCartStatus()
-        }
-
-        // Сворачивание Cart Checkout
-        if (!e.target.classList.contains('cart-main-button') && cartCheckout.classList.contains('active')) {
-            cartCheckout.classList.remove('active')
-            cartCheckout.classList.add('folded')
-        }
-    })
-
-    // Свайпер дополнений к заказу
-    createFreeModeSwiper('.cart-addition-items', 10)
-
-    createFreeModeSwiper('.cart-checkout-time-inputs', 9)
-
-    // Открытие Cart Checkout
-    cartCheckoutOpenButton.addEventListener('click', () => {
-        cartScreen.style.paddingBottom = '60px'
-        cartCheckout.style.display = 'block'
-        setTimeout(() => {
-            cartCheckout.classList.remove('folded')
-            cartCheckout.classList.add('active')
-        }, 0)
-    })
-
-    // Сворачивание Drag Element
-    document.querySelectorAll('.drag-element').forEach(dragElement => {
-        const trigger = dragElement.querySelector('.drag-element-trigger')
-        let startPosY, endPosY
-        trigger.addEventListener('touchstart', (e) => {
-            startPosY = e.touches[0].clientY
-            dragElement.style.transition = 'none'
-        })
-        trigger.addEventListener('touchmove', (e) => {
-            const currentY = e.touches[0].clientY;
-            const diffY = currentY - startPosY;
-            dragElement.style.transform = `translateY(${diffY > 0 ? diffY : 0}px)`
-            endPosY = currentY
-        })
-        trigger.addEventListener('touchend', () => {
-            dragElement.style.transition = 'transform .3s linear'
-            if (startPosY < endPosY) {
-                dragElement.classList.remove('active')
-                dragElement.classList.add('folded')
-            } else if (startPosY > endPosY) {
-                dragElement.classList.remove('folded')
-                dragElement.classList.add('active')
-            }
-            dragElement.style = ''
-        })
-    })
-</script>
+    <script src="js/main.js?v=1.0.1" type="module"></script>
 </body>
 </html>

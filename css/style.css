@@ -149,14 +149,16 @@ body {
 }
 
 .main-screen-content, .categories-screen-content,
-.cart-button{
+.cart-button, .profile-screen,
+body[data-screen="profile"] .main-screen {
     display: none;
 }
 body[data-screen="main"] .main-screen-content,
 body[data-screen="main"] .categories-screen-content,
 body[data-screen="categories"] .categories-screen-content,
 body[data-screen="main"] .cart-button,
-body[data-screen="categories"] .cart-button{
+body[data-screen="categories"] .cart-button,
+body[data-screen="profile"] .profile-screen {
     display: block;
 }
 
@@ -816,6 +818,13 @@ body[data-screen="categories"] .cart-button{
     max-height: 0;
     height: 100%;
     overflow: hidden;
+
+    z-index: 201;
+    width: 100%;
+    padding: 30px 0 45px;
+    background-color: var(--light-grey-bg);
+    border-top: 1px solid var(--dark-green);
+    display: none;
 }
 .drag-element-trigger {
     position: absolute;
@@ -847,13 +856,7 @@ body[data-screen="categories"] .cart-button{
 
 /* Dish Checkout */
 .cart-checkout {
-    z-index: 201;
-    width: 100%;
-    padding: 30px 0 45px;
-    background-color: var(--light-grey-bg);
-    border-top: 1px solid var(--dark-green);
     font-size: 16px;
-    display: none;
 }
 .cart-checkout-title {
     margin-bottom: 20px;
@@ -899,4 +902,135 @@ body[data-screen="categories"] .cart-button{
     border: 1px solid var(--dark-green);
     padding: 16px 0;
     text-align: center;
+}
+
+/* Profile */
+.profile-screen {
+    color: #000;
+    padding-top: 20px;
+}
+.profile-info {
+    margin-bottom: 43px;
+}
+.profile-avatar {
+    width: 124px;
+    height: 124px;
+    border: 2px dashed var(--dark-green-border);
+    border-radius: 44px;
+    padding: 30px 24px 20px;
+    background-color: var(--light-grey-bg);
+    margin-bottom: 13px;
+}
+.profile-name {
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.profile-container {
+    align-items: flex-start;
+    gap: 33px;
+    font-size: 18px;
+    padding: 0 60px;
+    width: 100%;
+}
+.profile-cards {
+    margin-top: 11px;
+    width: 100%;
+}
+.profile-card {
+    max-width: 108px;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 7px 13px;
+    font-size: 14px;
+    background-color: var(--light-grey-bg);
+    border: 1px solid var(--dark-green-border);
+    border-radius: 5px;
+    position: relative;
+}
+.profile-card::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 37px;
+    height: 23px;
+    background: url('../images/icons/mir-icon.png') no-repeat center;
+    background-size: contain;
+}
+.profile-add-card {
+    max-width: 44px;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-add-card div {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--dark-green-border);
+    line-height: 28px;
+    text-align: center;
+    font-size: 18px;
+}
+.profile-add-card div:active {
+    background-color: var(--light-grey-bg) !important;
+}
+.profile-version {
+    font-size: 15px;
+    color: rgba(133, 145, 85, 0.6);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.profile-card-addition-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.profile-card-addition-card {
+    margin: 0 auto 30px;
+    max-width: 340px;
+    width: 100%;
+    border: 2px solid var(--dark-green-border);
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 25px 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+}
+.profile-card-addition-card div:first-child {
+    grid-area: 1 / 1 / 2 / 3;
+}
+.profile-card-addition-card div:nth-child(2) {
+    justify-content: flex-start;
+}
+.profile-card-addition-card div:last-child {
+    justify-content: flex-end;
+}
+.profile-card-addition-card-label {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+.profile-card-addition-card-input {
+    font-size: 17px;
+}
+.profile-card-addition-button {
+    background-color: #fff;
+    padding: 17px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    border-radius: var(--border-radius-def);
+    border: 1px solid var(--dark-green-border);
+    margin-bottom: 15px;
+}
+.profile-card-addition-note {
+    font-size: 9px;
+    color: rgba(0, 0, 0, 0.8);
+    width: 100%;
 }
