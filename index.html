@@ -18,7 +18,7 @@
             <div class="authorization-form-title title">Авторизация</div>
             <input data-input-type="tel" type="text" placeholder="8 999 999 99 99" maxlength="16">
             <input data-input-type="code" type="text" placeholder="Код из СМС" maxlength="4">
-            <button class="authorization-form-button" type="button">
+            <button class="authorization-form-button button" type="button">
                 <svg width="43" height="24" viewBox="0 0 43 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M42.0607 13.0607C42.6464 12.4749 42.6464 11.5251 42.0607 10.9393L32.5147 1.3934C31.9289 0.807611 30.9792 0.807611 30.3934 1.3934C29.8076 1.97919 29.8076 2.92893 30.3934 3.51472L38.8787 12L30.3934 20.4853C29.8076 21.0711 29.8076 22.0208 30.3934 22.6066C30.9792 23.1924 31.9289 23.1924 32.5147 22.6066L42.0607 13.0607ZM0 13.5H41V10.5H0V13.5Z" fill="#D8320C" />
                 </svg>
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div>
-                <div class="dish-review-add-button">+ 9 999 ₽</div>
+                <div class="dish-review-add-button button">+ 9 999 ₽</div>
                 <div class="dish-review-more-button d-flex flex-column align-center">
                     <span>Подробнее</span>
                     <div class="dish-review-more-button-arrow"></div>
@@ -179,7 +179,7 @@
                         <span>9 999 *</span>
                     </div>
                 </div>
-                <div class="cart-main-button title">ОФОРМИТЬ</div>
+                <div class="cart-main-button title button">ОФОРМИТЬ</div>
             </div>
         </div>
         <div class="cart-screen-empty">Корзина пуста.</div>
@@ -217,7 +217,7 @@
         </div>
     </div>
 
-    <div class="cart-button" id="cartButton">0</div>
+    <div class="cart-button button" id="cartButton">0</div>
 
     <div id="navigation" class="navigation d-flex align-center justify-space-between">
         <button type="button" class="navigation-item active" data-screen="main">
@@ -369,7 +369,7 @@
                     ${category.name === 'Пиццы' ? `<div class="category-item-description">${item.desc}</div>` : ''}
                     <div class="category-item-price">${item.price} ₽</div>
                 </div>
-                <div class="category-item-btn"></div>
+                <div class="category-item-btn button"></div>
             </div>
             `)
             })
@@ -500,7 +500,7 @@
                     </div>
                     <div class="cart-product-price">${item.price} ₽</div>
                 </div>
-                <div class="cart-product-modify-btn">Изменить</div>
+                <div class="cart-product-modify-btn button">Изменить</div>
                 <div class="cart-product-count">
                     <button type="button" data-type="less">-</button>
                     <div class="cart-product-count-number">${item.count}</div>
@@ -516,7 +516,7 @@
             category.items.forEach(item => {
                 if (!cart.find(dish => dish.id === item.id)) {
                     cartAdditionWrapper.insertAdjacentHTML('beforeend', `
-                    <div class="swiper-slide cart-addition-item" data-id="${item.id}">
+                    <div class="swiper-slide cart-addition-item button" data-id="${item.id}">
                         <div class="cart-addition-item-image">
                             <img src="${item.image}" alt="">
                         </div>
@@ -575,7 +575,7 @@
 
     // Открытие Cart Checkout
     cartCheckoutOpenButton.addEventListener('click', () => {
-        cartScreen.style.paddingBottom = '110px'
+        cartScreen.style.paddingBottom = '60px'
         cartCheckout.style.display = 'block'
         setTimeout(() => {
             cartCheckout.classList.remove('folded')
