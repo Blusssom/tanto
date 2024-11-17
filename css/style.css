@@ -169,6 +169,19 @@ body[data-screen="profile"] .profile-screen {
     background-color: #c0c2b7;
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(100%);
+    transition: transform .3s linear;
+}
+.popup.active {
+    transform: translateY(0);
+}
+
 /* Initial Screen */
 .initial-screen {
     width: 100vw;
@@ -482,19 +495,11 @@ body[data-screen="profile"] .profile-screen {
 
 /* Dish Review */
 .dish-review {
-    position: fixed;
-    left: 0;
-    top: 0;
     z-index: 300;
-    width: 100vw;
-    height: 100vh;
     background-color: var(--main-background);
     padding-bottom: 30px;
-    transform: translateY(100%);
-    transition: transform .3s linear;
 }
 .dish-review.active {
-    transform: translateY(0);
     overflow-y: scroll !important;
 }
 .dish-review-close-btn {
@@ -607,19 +612,11 @@ body[data-screen="profile"] .profile-screen {
 /* Cart Screen */
 .cart-screen {
     background-color: var(--main-background);
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 200;
-    width: 100vw;
-    height: 100vh;
     padding-bottom: 30px;
     color: var(--dark-green);
-    transform: translateY(100%);
-    transition: transform .3s linear;
 }
 .cart-screen.active {
-    transform: translateY(0);
     overflow-y: scroll !important;
 }
 .cart-screen.empty .cart-screen-content {
@@ -1034,4 +1031,134 @@ body[data-screen="profile"] .profile-screen {
     font-size: 9px;
     color: rgba(0, 0, 0, 0.8);
     width: 100%;
+}
+
+/* Address Screen */
+.address-screen {
+    z-index: 50;
+    background-color: var(--main-background);
+    color: var(--dark-green);
+    display: flex;
+    flex-direction: column;
+}
+.address-close-button {
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    left: 35px;
+}
+.address-screen-title {
+    font-size: 20px;
+    margin: 17px 0 26px 83px;
+}
+.address-screen-content {
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+.address-screen-tabs {
+    background: linear-gradient(to bottom, #fff, var(--light-grey-bg));
+}
+.address-screen-tab {
+    flex: 1 1 0;
+    padding: 11px 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    border: 1px solid var(--dark-green-border);
+    background-color: #bfc4a5;
+}
+.address-screen-tab.active {
+    background-color: var(--light-grey-bg);
+    border: none;
+    border-top: 1px solid var(--dark-green);
+    font-weight: 700;
+}
+.address-screen-tab:first-child {
+    border-radius: 0 10px 5px 0;
+}
+.address-screen-tab:last-child {
+    border-radius: 10px 0 0 5px;
+}
+.address-screen-tab-content {
+    padding-top: 38px;
+    padding-bottom: 147px;
+    background-color: var(--light-grey-bg);
+    gap: 27px;
+    flex-grow: 1;
+}
+.address-screen-list {
+    gap: 28px;
+}
+.address-screen-list-item {
+    gap: 10px;
+    font-size: 14px;
+}
+.address-screen-list-item-selector {
+    position: relative;
+    max-width: 24px;
+    width: 100%;
+    height: 24px;
+    border-radius: 100%;
+    border: 1px solid var(--dark-green);
+}
+.address-screen-list-item-selector span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+}
+.address-screen-list-item-selector.checked span {
+    background-color: var(--dark-green);
+}
+.address-screen-list-item-name {
+    font-size: 20px;
+    line-height: 111%;
+}
+.address-screen-list-item-address {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.address-screen-list-item-comment {
+    margin-top: 5px;
+    padding: 2px 7px;
+    background-color: var(--main-background);
+    border-radius: 5px;
+}
+.address-screen-list-item-info {
+    flex-grow: 1;
+    border-right: 1px solid #000000;
+    padding-right: 10px;
+    min-height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.address-screen-list-item-button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+}
+.address-screen-list-item-button.edit {
+    max-width: 20px;
+    height: 20px;
+    background-image: url('../images/icons/edit.svg')
+}
+.address-screen-list-item-button.remove {
+    max-width: 19px;
+    height: 23px;
+    background-image: url('../images/icons/remove.svg');
+}
+.address-screen-tab-button {
+    border-radius: var(--border-radius-def);
+    padding: 12px 0;
+    background-color: #fff;
+    font-size: 24px;
+    border: 1px solid #000;
+    text-align: center;
 }

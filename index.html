@@ -197,7 +197,7 @@
         <div class="container">
             <div class="cart-checkout-title title">На доставку</div>
             <div class="cart-checkout-input">
-                <div>Указать адрес</div>
+                <div сдфыы="address-screen-open-button">Указать адрес</div>
                 <div class="cart-checkout-input-arrow"></div>
             </div>
             <div class="cart-checkout-input-title">Время доставки</div>
@@ -244,7 +244,7 @@
             <div class="profile-name">Имя</div>
         </div>
         <div class="profile-container d-flex flex-column">
-            <div>Адреса</div>
+            <div class="address-screen-open-button">Адреса</div>
             <div>Моя история</div>
         </div>
         <div style="width: 100%; margin: 33px 0;">
@@ -287,6 +287,21 @@
             </div>
             <div class="profile-card-addition-button title">Привязать карту</div>
             <div class="profile-card-addition-note">Какой-то важный маленький текст, который никто не читает, часто содержит ключевую информацию или инструкции, но теряется в потоке данных. В условиях избытка информации такие детали остаются незамеченными, что может привести к недопониманию или упущенным возможностям. Обращение внимания на мелочи может оказаться решающим для успешного выполнения задач.</div>
+        </div>
+    </div>
+
+    <div class="address-screen popup" id="addressScreen">
+        <div class="address-close-button popup-close-button title"><</div>
+        <div class="address-screen-title title">Адрес доставки</div>
+        <div class="address-screen-content d-flex flex-column">
+            <div class="address-screen-tabs d-flex">
+                <div class="address-screen-tab active" data-address-screen-tab="addresses">Доставка</div>
+                <div class="address-screen-tab" data-address-screen-tab="restaurants">Рестораны</div>
+            </div>
+            <div class="address-screen-tab-content container d-flex flex-column justify-space-between">
+                <div class="address-screen-list d-flex flex-column"></div>
+                <div class="address-screen-tab-button title">+ Новый адрес</div>
+            </div>
         </div>
     </div>
 

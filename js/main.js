@@ -419,3 +419,104 @@ document.querySelector('.profile-card-addition-button').addEventListener('click'
         profileCardAddition.classList.remove('active')
     }
 })
+
+const addresses = [
+    {
+        name: 'Адрес 1',
+        address: 'Ул. Пушкина, дом Колотушкина',
+        flat: 33,
+        comment: 'Коммент',
+        checked: true,
+        id: 1
+    },
+    {
+        name: 'Адрес 2',
+        address: 'Ул. Пушкина, дом Колотушкина',
+        comment: 'Коммент',
+        checked: false,
+        id: 2
+    }
+]
+const restaurants = [
+    { name: 'Ресторан 1', id: 1, selected: true, checked: true },
+    { name: 'Ресторан 2', id: 2, selected: true, checked: false },
+    { name: 'Ресторан 3', id: 3, selected: false, checked: false },
+    { name: 'Ресторан 4', id: 4, selected: false, checked: false },
+]
+
+// Открытие экрана адресов
+const addressScreen = document.getElementById('addressScreen')
+document.querySelectorAll('.address-screen-open-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        addressScreen.classList.add('active')
+    })
+})
+
+// Радио кнопка в списке адресов
+const addressScreenList = document.querySelector('.address-screen-list')
+addressScreenList.addEventListener('click', (e) => {
+    if (e.target.closest('.address-screen-list-item-selector')) {
+        addressScreenList.querySelector('.address-screen-list-item-selector.checked')?.classList.remove('checked')
+        e.target.closest('.address-screen-list-item-selector').classList.toggle('checked')
+        const listItem = e.target.closest('.address-screen-list-item')
+        const id = listItem.getAttribute('data-id')
+        if (listItem.classList.contains('address')) changeCheckedAddresses(addresses, id)
+        else changeCheckedAddresses(restaurants, id)
+        console.log(addresses, restaurants)
+    }
+})
+function changeCheckedAddresses(arr, id) {
+    arr.forEach(item => { item.checked = false })
+    arr.find(item => item.id === +id).checked = true
+}
+
+const addressScreenTabButton = document.querySelector('.address-screen-tab-button')
+function updateAddressScreenTab(tab) {
+    addressScreenList.innerHTML = ''
+    if (tab === 'addresses') {
+        addresses.forEach(address => {
+            addressScreenList.insertAdjacentHTML('beforeend', `
+            <div class="address-screen-list-item address d-flex align-center" data-id="${address.id}">
+                <div class="address-screen-list-item-selector ${address.checked ? 'checked' : ''}">
+                    <span></span>
+                </div>
+                <div class="address-screen-list-item-info">
+                    <div class="address-screen-list-item-name">${address.name}</div>
+                    <div class="address-screen-list-item-address">${address.address}${address.flat ? `, кв. ${address.flat}` : ''}</div>
+                    <div class="address-screen-list-item-comment">${address.comment}</div>
+                </div>
+                <div class="address-screen-list-item-button edit"></div>
+            </div>
+            `)
+        })
+        addressScreenTabButton.innerHTML = '+ Новый адрес'
+    } else {
+        restaurants.forEach(restaurant => {
+            if (restaurant.selected) {
+                addressScreenList.insertAdjacentHTML('beforeend', `
+                <div class="address-screen-list-item restaurant d-flex align-center" data-id="${restaurant.id}">
+                    <div class="address-screen-list-item-selector ${restaurant.checked ? 'checked' : ''}">
+                        <span></span>
+                    </div>
+                    <div class="address-screen-list-item-info">
+                        <div class="address-screen-list-item-name">${restaurant.name}</div>
+                    </div>
+                    <div class="address-screen-list-item-button remove"></div>
+                </div>
+                `)
+            }
+        })
+        addressScreenTabButton.innerHTML = '+ Новый ресторан'
+    }
+}
+updateAddressScreenTab('addresses')
+
+// Переключение вкладок в экране адресов
+document.querySelector('.address-screen-tabs').addEventListener('click', (e) => {
+    if (e.target.closest('.address-screen-tab')) {
+        const tabButton = e.target.closest('.address-screen-tab')
+        document.querySelector('.address-screen-tab.active').classList.remove('active')
+        tabButton.classList.add('active')
+        updateAddressScreenTab(tabButton.getAttribute('data-address-screen-tab'))
+    }
+})
