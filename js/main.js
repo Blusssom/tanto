@@ -34,11 +34,12 @@ document.querySelectorAll('[data-number-input]').forEach(input => {
 
 
 const createFreeModeSwiper = (selector, space) => {
-    new Swiper(selector, {
+    const swiper = new Swiper(selector, {
         spaceBetween: space,
         slidesPerView: 'auto',
         freeMode: true,
     });
+    return swiper
 }
 
 // Свайпер сторис
@@ -383,9 +384,38 @@ document.querySelectorAll('.drag-element').forEach(dragElement => {
 })
 
 // Свайпер карт в профиле
-createFreeModeSwiper('.profile-cards', 26)
+const profileCardsSwiper = createFreeModeSwiper('.profile-cards', 26)
 
 // Открытие вкладки добавления карты
 const profileAddCardButton = document.getElementById('profileAddCardButton')
 const profileCardAddition = document.getElementById('profileCardAddition')
 profileAddCardButton.addEventListener('click', () => { showDragElement(profileCardAddition) })
+
+// Форматирование инпутов в добавлении карты
+const cardNumberInput = document.getElementById('cardNumberInput')
+const cardDateInput = document.getElementById('cardDateInput')
+cardNumberInput.addEventListener('input', () => {
+    let value = cardNumberInput.value.replace(/\D/g, '');
+    value = value.replace(/(\d{4})/g, '$1 ');
+    cardNumberInput.value = value.trim();
+})
+cardDateInput.addEventListener('input', () => {
+    let value = cardDateInput.value.replace(/\D/g, '');
+    value = value.replace(/(\d{2})(\d{2})/g, '$1/$2');
+    value = value.slice(0, 5);
+    cardDateInput.value = value;
+})
+
+// Добавление карты
+document.querySelector('.profile-card-addition-button').addEventListener('click', () => {
+    if (cardNumberInput.value.length === 19) {
+        profileAddCardButton.closest('.profile-add-card').insertAdjacentHTML('beforebegin', `
+        <div class="swiper-slide profile-card">
+            <div>${cardNumberInput.value.slice(-4)}</div>
+        </div>
+        `)
+        profileCardsSwiper.update()
+        profileCardAddition.querySelectorAll('input').forEach(input => { input.value = '' })
+        profileCardAddition.classList.remove('active')
+    }
+})
