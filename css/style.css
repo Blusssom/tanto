@@ -934,6 +934,7 @@ body[data-screen="profile"] .profile-screen {
 }
 .profile-cards {
     margin-top: 11px;
+    padding: 0 60px;
     width: 100%;
 }
 .profile-card {
