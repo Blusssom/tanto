@@ -196,8 +196,8 @@
         </div>
         <div class="container">
             <div class="cart-checkout-title title">На доставку</div>
-            <div class="cart-checkout-input">
-                <div сдфыы="address-screen-open-button">Указать адрес</div>
+            <div class="cart-checkout-input address-screen-open-button" data-zIndex="400">
+                <div>Указать адрес</div>
                 <div class="cart-checkout-input-arrow"></div>
             </div>
             <div class="cart-checkout-input-title">Время доставки</div>
@@ -244,7 +244,7 @@
             <div class="profile-name">Имя</div>
         </div>
         <div class="profile-container d-flex flex-column">
-            <div class="address-screen-open-button">Адреса</div>
+            <div class="address-screen-open-button" data-zIndex="50">Адреса</div>
             <div>Моя история</div>
         </div>
         <div style="width: 100%; margin: 33px 0;">
@@ -293,7 +293,7 @@
     <div class="address-screen popup" id="addressScreen">
         <div class="address-close-button popup-close-button title"><</div>
         <div class="address-screen-title title">Адрес доставки</div>
-        <div class="address-screen-content d-flex flex-column">
+        <div class="address-screen-content select-address d-flex flex-column" id="addressScreenSelect">
             <div class="address-screen-tabs d-flex">
                 <div class="address-screen-tab active" data-address-screen-tab="addresses">Доставка</div>
                 <div class="address-screen-tab" data-address-screen-tab="restaurants">Рестораны</div>
@@ -301,6 +301,29 @@
             <div class="address-screen-tab-content container d-flex flex-column justify-space-between">
                 <div class="address-screen-list d-flex flex-column"></div>
                 <div class="address-screen-tab-button title">+ Новый адрес</div>
+            </div>
+        </div>
+        <div class="address-screen-content add-address">
+            <div class="address-screen-map" id="addressScreenMap">
+                <iframe src="https://yandex.kz/map-widget/v1/?ll=37.796046%2C55.752152&z=8.99" width="560" height="400" allowfullscreen="true" style="position:relative;"></iframe>
+            </div>
+            <div class="address-screen-form-wrapper">
+                <div class="address-screen-form container" id="addressScreenForm">
+                    <input type="text" placeholder="Город, улица и дом" data-address-input="address">
+                    <input type="text" placeholder="Название места" data-address-input="name">
+                    <input type="text" placeholder="Подъезд" data-number-input maxlength="1" data-address-input="entrance">
+                    <input type="text" placeholder="Домофон" data-number-input maxlength="3" data-address-input="intercome">
+                    <input type="text" placeholder="Этаж" data-number-input maxlength="2" data-address-input="floor">
+                    <input type="text" placeholder="Квартира" data-number-input maxlength="3" data-address-input="flat">
+                    <input type="text" placeholder="Комментарий к адресу" data-address-input="comment">
+                </div>
+                <div class="container">
+                    <div class="address-screen-form-button button title" id="newAddressSaveButton">Сохранить</div>
+                </div>
+            </div>
+            <div class="address-screen-restaurants-list-wrapper">
+                <div class="address-screen-restaurants-list-title title container">Список ресторанов</div>
+                <div class="address-screen-restaurants-list d-flex flex-column" id="restaurantsList"></div>
             </div>
         </div>
     </div>

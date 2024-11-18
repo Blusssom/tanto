@@ -57,6 +57,7 @@ navigation.addEventListener('click', e => {
         navBtn.classList.add('active')
         document.body.setAttribute('data-screen', navBtn.getAttribute('data-screen'))
         document.querySelector('.drag-element.folded')?.classList.remove('folded')
+        document.querySelectorAll('.popup').forEach(popup => { popup.classList.remove('active') })
     }
 })
 
@@ -448,7 +449,9 @@ const restaurants = [
 const addressScreen = document.getElementById('addressScreen')
 document.querySelectorAll('.address-screen-open-button').forEach(btn => {
     btn.addEventListener('click', () => {
+        addressScreen.style.zIndex = btn.getAttribute('data-zIndex')
         addressScreen.classList.add('active')
+        if (addressScreen.hasAttribute('data-add-address')) addressScreen.removeAttribute('data-add-address')
     })
 })
 
@@ -462,7 +465,6 @@ addressScreenList.addEventListener('click', (e) => {
         const id = listItem.getAttribute('data-id')
         if (listItem.classList.contains('address')) changeCheckedAddresses(addresses, id)
         else changeCheckedAddresses(restaurants, id)
-        console.log(addresses, restaurants)
     }
 })
 function changeCheckedAddresses(arr, id) {
@@ -483,7 +485,7 @@ function updateAddressScreenTab(tab) {
                 <div class="address-screen-list-item-info">
                     <div class="address-screen-list-item-name">${address.name}</div>
                     <div class="address-screen-list-item-address">${address.address}${address.flat ? `, кв. ${address.flat}` : ''}</div>
-                    <div class="address-screen-list-item-comment">${address.comment}</div>
+                    ${address.comment ? `<div class="address-screen-list-item-comment">${address.comment}</div>` : ''}
                 </div>
                 <div class="address-screen-list-item-button edit"></div>
             </div>
@@ -511,12 +513,98 @@ function updateAddressScreenTab(tab) {
 }
 updateAddressScreenTab('addresses')
 
-// Переключение вкладок в экране адресов
-document.querySelector('.address-screen-tabs').addEventListener('click', (e) => {
+const addressScreenForm = document.getElementById('addressScreenForm')
+
+addressScreen.addEventListener('click', (e) => {
+    // Переключение вкладок в экране адресов
     if (e.target.closest('.address-screen-tab')) {
         const tabButton = e.target.closest('.address-screen-tab')
         document.querySelector('.address-screen-tab.active').classList.remove('active')
         tabButton.classList.add('active')
         updateAddressScreenTab(tabButton.getAttribute('data-address-screen-tab'))
     }
+
+    // Добавление адресов
+    if (e.target.classList.contains('address-screen-tab-button')) {
+        const currentTabName = document.querySelector('.address-screen-tab.active').getAttribute('data-address-screen-tab')
+        if (currentTabName === 'addresses') {
+            addressScreenForm.querySelectorAll('input').forEach(input => {input.value = ''})
+            addressScreen.setAttribute('data-add-address', 'address')
+        } else {
+            addressScreen.setAttribute('data-add-address', 'restaurant')
+        }
+    }
+    if (e.target.id === 'newAddressSaveButton') {
+        const newAddress = {}
+        addressScreenForm.querySelectorAll('input').forEach(input => {
+            const inputName = input.getAttribute('data-address-input')
+            newAddress[inputName] = input.value
+        })
+        if (addressScreenForm.hasAttribute('data-current-address-id')) {
+            const id = +addressScreenForm.getAttribute('data-current-address-id')
+            newAddress.id = id
+            addresses.splice(addresses.findIndex(ad => ad.id === id), 1)
+            addressScreenForm.removeAttribute('data-current-address-id')
+        } else {
+            newAddress.id = addresses.sort((a, b) => b.id - a.id)[0].id + 1
+        }
+        addresses.push(newAddress)
+        addressScreen.removeAttribute('data-add-address')
+        updateAddressScreenTab('addresses')
+    }
+
+
+    // Изменение/удаление адресов
+    if (e.target.classList.contains('address-screen-list-item-button')) {
+        if (e.target.classList.contains('edit')) {
+            const addressId = e.target.closest('.address-screen-list-item').getAttribute('data-id')
+            addressScreenForm.setAttribute('data-current-address-id', addressId)
+            addressScreenForm.querySelectorAll('[data-address-input]').forEach(input => {
+                const inputName = addresses.find(address => address.id === +addressId)[input.getAttribute('data-address-input')]
+                if (inputName) input.value = inputName
+            })
+            addressScreen.setAttribute('data-add-address', 'address')
+        } else {
+            const resEl = e.target.closest('.address-screen-list-item')
+            const resId = resEl.getAttribute('data-id')
+            resEl.remove()
+            restaurants.find(res => res.id === +resId).selected = false
+        }
+    }
+
+    // Выбор ресторана из списка
+    if (e.target.closest('.address-screen-restaurants-list-item')) {
+        addressScreen.removeAttribute('data-add-address')
+        const id = +e.target.closest('.address-screen-restaurants-list-item').getAttribute('data-id')
+        if (!restaurants.find(r => r.id === id).selected) {
+            restaurants.find(r => r.id === id).selected = true
+            updateAddressScreenTab('restaurants')
+        }
+    }
+
+    // Закрытие экрана
+    if (e.target.classList.contains('.address-close-button')) addressScreen.removeAttribute('data-add-address')
 })
+
+// Обновление списка ресторанов
+const restaurantsList = document.getElementById('restaurantsList')
+restaurants.forEach(res => {
+    restaurantsList.insertAdjacentHTML('beforeend', `
+    <div class="address-screen-restaurants-list-item container" data-id="${res.id}">
+        <div class="d-flex align-start justify-space-between">
+            <div class="address-screen-restaurants-list-item-title">${res.name}</div>
+            <div class="address-screen-restaurants-list-item-distance">123 м</div>
+        </div>
+        <div class="d-flex align-end justify-space-between">
+            <div class="address-screen-restaurants-list-item-note">пн - вс,  09:00 - 23:00 <br>Название станции метро</div>
+            <div class="address-screen-restaurants-list-item-star"></div>
+        </div>
+    </div>
+    `)
+})
+
+// fetch('https://geocode-maps.yandex.ru/1.x?apikey=25c54a50-8e73-4b02-aa91-b27450e7e8c7&geocode=Москва&format=json')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error))
+
