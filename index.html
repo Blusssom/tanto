@@ -219,7 +219,7 @@
                 <div>Наличными</div>
                 <div class="cart-checkout-input-arrow"></div>
             </div>
-            <div class="cart-checkout-button title">Оплатить <span id="cartCheckoutTotalCount"></span> ₽</div>
+            <div class="cart-checkout-button title" id="orderPayment">Оплатить <span id="cartCheckoutTotalCount"></span> ₽</div>
         </div>
     </div>
 
@@ -245,7 +245,7 @@
         </div>
         <div class="profile-container d-flex flex-column">
             <div class="address-screen-open-button" data-zIndex="50">Адреса</div>
-            <div>Моя история</div>
+            <div class="history-screen-open-button">Моя история</div>
         </div>
         <div style="width: 100%; margin: 33px 0;">
             <div class="profile-container">Способы оплаты</div>
@@ -326,6 +326,13 @@
                 <div class="address-screen-restaurants-list d-flex flex-column" id="restaurantsList"></div>
             </div>
         </div>
+    </div>
+
+    <div class="history-screen popup" id="historyScreen">
+        <div class="history-close-button popup-close-button title"><</div>
+        <div class="history-screen-title title">Мои заказы</div>
+        <div class="history-screen-orders-list d-flex flex-column" id="ordersList"></div>
+        <div class="history-screen-empty">Нет истории заказов.</div>
     </div>
 
     <!-- Основная навигация -->

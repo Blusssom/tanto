@@ -232,7 +232,13 @@ document.querySelectorAll('.popup-close-button').forEach(button => {
         if (popup.classList.contains('cart-screen')) {
             cartCheckout.classList.remove('active')
             cartCheckout.classList.remove('folded')
+            setTimeout(() => {popup.classList.remove('empty')}, 500)
             popup.style.paddingBottom = '30px'
+            if (popup.hasAttribute('data-order-repeat')) {
+                popup.removeAttribute('data-order-repeat')
+                cart.length = 0
+                updateCartStatus()
+            }
         }
     })
 })
@@ -299,6 +305,12 @@ function updateCartStatus() {
         })
     })
     document.getElementById('cartCheckoutTotalCount').innerHTML = cart.reduce((acc, dish) => acc + dish.count * dish.price, 0)
+
+    cartScreen.classList.remove('empty')
+    if (cart.length === 0) {
+        cartScreen.classList.add('empty')
+        cartCheckout.classList.remove('active')
+    }
 }
 
 const cartCheckoutOpenButton = cartScreen.querySelector('.cart-main-button')
@@ -323,9 +335,6 @@ cartScreen.addEventListener('click', (e) => {
         if (currentDishObj.count === 0) {
             const index = cart.findIndex(dish => dish.id === dishId)
             cart.splice(index, 1)
-            if (cart.length === 0) {
-                cartScreen.classList.add('empty')
-            }
         }
         updateCartStatus()
     }
@@ -601,6 +610,101 @@ restaurants.forEach(res => {
         </div>
     </div>
     `)
+})
+
+const monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+
+const orders = []
+class Order {
+    constructor(way, address, dishes) {
+        this.way = way
+        this.address = address
+        this.number = Date.now()
+        this.date = `${new Date().getDate()} ${monthNames[new Date().getMonth()]}`
+        this.dishes = dishes
+    }
+    pushOrder() {
+        orders.push(this)
+    }
+}
+
+// Открытие истории заказов
+const historyScreen = document.getElementById('historyScreen')
+const ordersList = document.getElementById('ordersList')
+document.querySelector('.history-screen-open-button').addEventListener('click', () => {
+    historyScreen.classList.add('active')
+    if (orders.length === 0) {
+        historyScreen.classList.add('empty')
+    } else {
+        historyScreen.classList.remove('empty')
+        ordersList.innerHTML = ''
+        orders.forEach(order => {
+            ordersList.insertAdjacentHTML('beforeend', `
+            <div class="history-screen-order" data-number="${order.number}">
+                <div class="history-screen-order-title">${order.way}</div>
+                <div class="history-screen-order-address">${order.address}</div>
+                <div class="history-screen-order-info d-flex align-center justify-space-between">
+                    <div class="history-screen-order-number">№${order.number}</div>
+                    <div class="history-screen-order-date">${order.date}</div>
+                </div>
+                <div class="history-screen-order-dishes d-flex flex-column">
+                    ${
+                        order.dishes.map(dish => 
+                            `
+                            <div class="history-screen-order-dish d-flex align-center">
+                                <div class="history-screen-order-dish-image">
+                                    <img src="${dish.image}" alt="">
+                                </div>
+                                <div class="history-screen-order-dish-name">${dish.name}</div>
+                                <div class="history-screen-order-dish-price">${dish.price} ₽</div>
+                            </div>
+                            `
+                        ).join('')
+                    }
+                </div>
+                <div class="history-screen-order-repeat-button title">Повторить заказ</div>
+                <div class="history-screen-order-close-button"><div></div></div>
+            </div>
+            `)
+        })
+    }
+})
+
+historyScreen.addEventListener('click', (e) => {
+    // Разворачивание заказа в истории
+    if (e.target.closest('.history-screen-order-close-button')) {
+        e.target.closest('.history-screen-order').classList.toggle('unfolded')
+    }
+
+    // Повторение заказа
+    if (e.target.classList.contains('history-screen-order-repeat-button')) {
+        const orderNumber = +e.target.closest('.history-screen-order').getAttribute('data-number')
+        const orderObj = orders.find(order => order.number === orderNumber)
+        cart.length = 0
+        orderObj.dishes.forEach(dish => {
+            cart.push({ ...dish })
+        })
+        updateCartStatus()
+        cartScreen.classList.add('active')
+        cartScreen.setAttribute('data-order-repeat', '')
+    }
+})
+
+// Оплата заказа и пополнение истории заказов
+document.getElementById('orderPayment').addEventListener('click', () => {
+    let orderWay, orderAddress
+    if (document.querySelector('.address-screen-tab.active').getAttribute('data-address-screen-tab') === 'addresses') {
+        orderWay = 'Доставка'
+        const orderAddressObj = addresses.find(ad => ad.checked)
+        orderAddress = `${orderAddressObj.address}${orderAddressObj.flat ? `, кв. ${orderAddressObj.flat}` : ''}`
+    } else {
+        orderWay = 'Ресторан'
+        orderAddress = restaurants.find(res => res.checked).name
+    }
+    const newOrder = new Order(orderWay, orderAddress, [...cart])
+    newOrder.pushOrder()
+    cart.length = 0
+    updateCartStatus()
 })
 
 // fetch('https://geocode-maps.yandex.ru/1.x?apikey=25c54a50-8e73-4b02-aa91-b27450e7e8c7&geocode=Москва&format=json')
